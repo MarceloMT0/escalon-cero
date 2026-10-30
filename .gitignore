@@ -7,6 +7,11 @@ out/
 .sites-runtime/
 .openai/
 .vercel/
+supabase/.temp/
+supabase/.branches/
 output/playwright/
 *.tgz
 *.tar.gz
+
+.vercel
+.env*

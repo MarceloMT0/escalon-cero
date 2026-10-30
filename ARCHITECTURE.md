@@ -20,9 +20,11 @@ React y TypeScript implementan la interfaz. Tailwind y CSS con tokens propios re
 
 En modo local, el navegador conserva un único borrador de la actividad y hasta cinco archivos de 2 MB. Los textos tienen límites y se validan al leer y guardar. Un error de almacenamiento no debe descartar el texto del formulario ni fingir que se guardó.
 
+Los borradores locales se separan por usuario autenticado. El primer inicio de sesión puede trasladar un borrador de invitado a un espacio de cuenta vacío, sin sobrescribir borradores de cuenta existentes. Cerrar sesión oculta el borrador de la cuenta en la interfaz; otra cuenta no lo hereda. Este aislamiento de interfaz no equivale a cifrar el almacenamiento del dispositivo.
+
 Con variables públicas de Supabase, se habilita autenticación por correo y sincronización manual. `practice_drafts` tiene clave compuesta por usuario y actividad; sus políticas permiten operar solo sobre filas propias. El bucket privado `evidence` limita formato, tamaño y rutas por usuario. Las credenciales administrativas no forman parte del cliente.
 
-El contrato y la migración están implementados. La conexión real se considera pendiente hasta configurar el proyecto y ejecutar pruebas de cuentas, archivos e aislamiento entre usuarios.
+La migración está aplicada y registrada en el proyecto real. Las pruebas SQL y las pruebas de SDK verificaron RLS; una prueba en navegador verificó inicio de sesión, sincronización y recuperación de adjuntos en otra sesión. Se utilizaron cuentas sintéticas, retiradas al terminar. El registro público por correo requiere configurar SMTP; la confirmación de correo permanece activa.
 
 ## Portafolio
 

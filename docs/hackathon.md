@@ -4,14 +4,14 @@ Fuentes del alcance de la competencia: material «Temática DSC HACK: Educación
 
 ## Correspondencia
 
-| Exigencia                                  | Preparación del proyecto                                                                                          | Estado                                                                                   |
-| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| Problema educativo actual en Perú y fuente | Transición entre educación y primer empleo; referencias de tareas de QA y demanda laboral enlazadas en `/acerca/` | Falta consolidar el dato específico y la evidencia propia en el pitch                    |
-| Explicar por qué crece hacia 2036          | Hipótesis sobre automatización y oportunidades de aprender tareas iniciales                                       | Debe sustentarse con fuentes; no asumir que exposición a IA equivale a pérdida de empleo |
-| Software funcional desplegado              | Build estático, configuración Vercel e integración Supabase                                                       | Verificar URL y servicios tras autorización de las cuentas                               |
-| Repositorio público                        | GitHub: `MarceloMT0/escalon-cero`; código, comandos, documentación y CI                                           | Confirmar push y CI del commit final                                                     |
-| Prueba real de uso                         | Guion preparado abajo                                                                                             | Pendiente; QA automática no cuenta como usuario real                                     |
-| Presentación y carpeta de evidencias       | Esta documentación facilita su preparación                                                                        | Pendientes del equipo                                                                    |
+| Exigencia                                  | Preparación del proyecto                                                                                          | Estado                                                                                       |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Problema educativo actual en Perú y fuente | Transición entre educación y primer empleo; referencias de tareas de QA y demanda laboral enlazadas en `/acerca/` | Falta consolidar el dato específico y la evidencia propia en el pitch                        |
+| Explicar por qué crece hacia 2036          | Hipótesis sobre automatización y oportunidades de aprender tareas iniciales                                       | Debe sustentarse con fuentes; no asumir que exposición a IA equivale a pérdida de empleo     |
+| Software funcional desplegado              | Build estático, configuración Vercel e integración Supabase                                                       | Demo pública en Vercel y Supabase configurado; comprobaciones técnicas en docs/validation.md |
+| Repositorio público                        | GitHub: `MarceloMT0/escalon-cero`; código, comandos, documentación y CI                                           | Repositorio público subido y validación automática configurada                               |
+| Prueba real de uso                         | Guion preparado abajo                                                                                             | Pendiente; QA automática no cuenta como usuario real                                         |
+| Presentación y carpeta de evidencias       | Esta documentación facilita su preparación                                                                        | Pendientes del equipo                                                                        |
 
 El material indica cierre de entregables el 31 de octubre de 2026 a las 17:00, hora de Lima. Se piden URL del repositorio público, presentación, demo y carpeta de evidencias. Hasta tres registros cuentan; al menos uno debe ser prueba de uso con la plantilla oficial. No fabricar registros ni sustituir la plantilla con esta guía.
 

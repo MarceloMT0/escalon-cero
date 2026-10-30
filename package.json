@@ -11,10 +11,11 @@
     "build": "next build",
     "preview": "node scripts/serve.mjs",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
     "check": "npm run lint && npm run typecheck && npm test",
     "qa:browser": "node scripts/qa-browser.mjs",
+    "qa:cloud": "node scripts/qa-cloud.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },

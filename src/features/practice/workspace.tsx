@@ -119,7 +119,17 @@ export function PracticeWorkspace() {
             <Link className={buttonVariants({ variant: "secondary" })} href="/actividad/qa-tienda/">
               Leer el encargo
             </Link>
+            {cloudConfigured ? (
+              <Button variant="secondary" disabled={busy} onClick={() => void sync(true)}>
+                Recuperar mi práctica de mi cuenta
+              </Button>
+            ) : null}
           </div>
+          {notice ? (
+            <p className="feedback" role="status">
+              {notice}
+            </p>
+          ) : null}
           <span className="field-help">
             Tu avance se guarda en este navegador. Puedes descargarlo al terminar.
           </span>

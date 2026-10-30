@@ -4,6 +4,8 @@
 
 MVP construido durante DSC HACK 2026. La primera actividad es una simulación de QA de una tienda online. Las demás áreas y roles se presentan como próximos contenidos.
 
+**Demo:** https://escalon-cero-ruddy.vercel.app · **Código:** https://github.com/MarceloMT0/escalon-cero
+
 ![Referencia visual aprobada](docs/assets/referencia-aprobada.png)
 
 ## Ejecutar
@@ -38,6 +40,10 @@ El enlace de portafolio lleva una copia del texto codificada en su fragmento `#`
 
 **Nunca usar una clave service_role en la aplicación.** La migración restringe borradores y archivos al dueño mediante RLS. Sin un proyecto configurado, la integración existe en el código pero no se considera verificada en producción.
 
+El proyecto de esta entrega ya está configurado; sus identificadores no secretos están en `supabase/project.json`. La migración está aplicada y registrada, y las URLs de autenticación se declaran en `supabase/config.toml`. Se comprobaron inicio de sesión, sincronización, archivos privados y aislamiento entre usuarios con cuentas sintéticas eliminadas al terminar.
+
+El correo incorporado de Supabase solo envía confirmaciones a miembros del equipo. Para abrir el registro por correo a personas externas, configurar [SMTP propio](https://supabase.com/docs/guides/auth/auth-smtp). La verificación de correo permanece activa. La demo se puede completar y compartir sin crear una cuenta.
+
 ## Comprobar
 
 ```powershell
@@ -55,9 +61,11 @@ npm run qa:browser
 
 La QA prueba catálogo, borradores, tienda, archivos, entrega, enlace compartido desde una sesión independiente y móvil. También audita accesibilidad con axe en las vistas indicadas en `output/playwright/qa-results.json`. Son comprobaciones automáticas y no sustituyen una prueba con una persona real.
 
+`npm run qa:cloud` comprueba Supabase y la sincronización real desde navegador. Requiere autorización explícita con `SUPABASE_TEST_ALLOW_WRITE=true`, `SUPABASE_TEST_PROJECT_REF`, las dos variables públicas y una credencial administrativa en `SUPABASE_TEST_SERVICE_KEY`, suministrada solo al proceso de prueba. Crea cuentas sintéticas, comprueba aislamiento y limpia sus propios datos al terminar. No configurar esa credencial en Vercel ni en variables `NEXT_PUBLIC_*`.
+
 ## Desplegar en Vercel
 
-Importar este repositorio en Vercel. `vercel.json` configura Next.js y la salida estática `out/`. Añadir las dos variables públicas de Supabase al proyecto y reconstruir. El repositorio incluye validación de código, tipos, pruebas y build en GitHub Actions.
+Este repositorio está vinculado al proyecto Vercel `escalon-cero`. `vercel.json` configura Next.js; Vercel detecta su exportación estática automáticamente. No fijar `outputDirectory` a `out` en el adaptador Next.js de Vercel, porque este debe leer primero los manifiestos de `.next/`. Las dos variables públicas de Supabase están configuradas en producción, preview y desarrollo. El repositorio incluye formato, validación de código, tipos, pruebas y build en GitHub Actions.
 
 También se puede desplegar el directorio `out/` en un alojamiento estático con rutas por directorio. La aplicación no requiere un servidor Node en producción; Supabase proporciona el backend cuando está configurado.
 

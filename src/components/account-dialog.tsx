@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { Cloud, HardDrive, UserRound } from "lucide-react";
 import { cloudConfigured, getCloudClient } from "@/lib/supabase";
+import { setPracticeIdentity } from "@/features/practice/store";
 import { Dialog } from "./ui/dialog";
 import { Button } from "./ui/button";
 
@@ -18,9 +19,15 @@ export function AccountDialog() {
     getCloudClient()
       .then(async (client) => {
         const { data } = await client.auth.getUser();
-        if (active) setUserEmail(data.user?.email ?? null);
+        if (active) {
+          setPracticeIdentity(data.user?.id ?? null);
+          setUserEmail(data.user?.email ?? null);
+        }
         const { data: listener } = client.auth.onAuthStateChange((_event, session) => {
-          if (active) setUserEmail(session?.user.email ?? null);
+          if (active) {
+            setPracticeIdentity(session?.user.id ?? null);
+            setUserEmail(session?.user.email ?? null);
+          }
         });
         unsubscribe = () => listener.subscription.unsubscribe();
         if (!active) unsubscribe();
@@ -44,7 +51,16 @@ export function AccountDialog() {
       const response =
         mode === "login"
           ? await client.auth.signInWithPassword({ email: email.trim(), password })
-          : await client.auth.signUp({ email: email.trim(), password });
+          : await client.auth.signUp({
+              email: email.trim(),
+              password,
+              options: { emailRedirectTo: window.location.origin },
+            });
+      if (response.error?.code === "email_address_not_authorized") {
+        throw new Error(
+          "El registro por correo de esta demo todavía está limitado al equipo. Puedes completar y compartir tu práctica sin crear una cuenta.",
+        );
+      }
       if (response.error)
         throw new Error(
           mode === "login"
