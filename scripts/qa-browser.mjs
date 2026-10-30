@@ -53,9 +53,29 @@ try {
   await noOverflow(page, "desktop home");
   await screenshot("home-desktop");
   await accessibility("home");
+  const scene = page.locator("figure[data-paused]");
+  await page.getByRole("button", { name: "Pausar animación", exact: true }).click();
+  assert.equal(await scene.getAttribute("data-paused"), "true");
+  assert.ok(
+    await scene.evaluate((element) =>
+      element
+        .getAnimations({ subtree: true })
+        .every((animation) => animation.playState === "paused"),
+    ),
+    "all decorative motion can be paused",
+  );
+  await page.getByRole("button", { name: "Activar animación", exact: true }).click();
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  assert.equal(
+    await scene.evaluate((element) => element.getAnimations({ subtree: true }).length),
+    0,
+    "reduced-motion preference stops decorative animations",
+  );
+  await page.emulateMedia({ reducedMotion: "no-preference" });
   for (const width of [390, 320]) {
     await page.setViewportSize({ width, height: 844 });
     await noOverflow(page, `home ${width}`);
+    assert.equal(await scene.isVisible(), true, "graphic content remains visible on mobile");
   }
   await screenshot("home-mobile");
   await page.setViewportSize({ width: 1440, height: 1080 });

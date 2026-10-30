@@ -8,6 +8,7 @@ Estudiantes de últimos ciclos y egresados que necesitan practicar tareas de un 
 
 - Una actividad funcional en Ingeniería de software / QA.
 - Inicio orientado a elegir un área de interés, sin recomendar QA antes de conocerla. Todas las áreas son visibles; las que no tienen contenido indican «Próximamente».
+- Escena gráfica de progreso con movimiento decorativo, control de pausa y respeto de la preferencia de movimiento reducido. Visible también en móvil, después de la elección de área.
 - Catálogo con búsqueda insensible a tildes y filtro por rol. Otras áreas y roles sin actividades, etiquetadas como «Próximamente».
 - Encargo de una empresa ficticia, cinco requisitos y entregables claros.
 - Tienda de práctica con cantidades, envío, cupón, correo y confirmación de pedido ficticio.

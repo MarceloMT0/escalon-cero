@@ -622,6 +622,10 @@ input[type="checkbox"] {
   padding: 28px;
   box-shadow: 0 8px 30px #14213d04;
 }
+.home-discovery > .discovery-card {
+  grid-column: 2;
+  grid-row: 1;
+}
 .discovery-card h2 {
   font-family: var(--font-serif), Georgia, serif;
   font-weight: 400;
@@ -2960,6 +2964,10 @@ progress::-webkit-progress-value {
   }
   .home-discovery .hero-art {
     display: none;
+  }
+  .home-discovery > .discovery-card {
+    grid-column: 1;
+    grid-row: auto;
   }
   .discovery-card {
     padding: 23px 20px;

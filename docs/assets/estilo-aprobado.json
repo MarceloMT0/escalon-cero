@@ -37,5 +37,10 @@
     "Identificar las prácticas como simulaciones y no como experiencia laboral contratada",
     "No presentar el mockup completo como una imagen en lugar de una interfaz funcional"
   ],
-  "regla_de_inicio": "Presentar áreas e intereses antes de una actividad específica. No recomendar QA a visitantes cuyo objetivo aún no se conoce. Áreas sin contenido deben indicar Próximamente."
+  "regla_de_inicio": "Presentar áreas e intereses antes de una actividad específica. No recomendar QA a visitantes cuyo objetivo aún no se conoce. Áreas sin contenido deben indicar Próximamente.",
+  "movimiento": {
+    "solicitud": "Más animación y contenido gráfico para dar presencia a la página.",
+    "implementacion": "Escena de escalones con tarjetas flotantes, órbitas y un gráfico decorativo; la selección de área sigue siendo la acción principal.",
+    "accesibilidad": "Control de pausa y composición estática cuando se prefiere movimiento reducido."
+  }
 }

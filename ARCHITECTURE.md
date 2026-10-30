@@ -6,6 +6,8 @@ Next.js App Router genera rutas estáticas. Los componentes de servidor se ejecu
 
 React y TypeScript implementan la interfaz. Tailwind y CSS con tokens propios reproducen el estilo aprobado. Los controles usan variantes de estilo shadcn y Radix Dialog para foco, cierre y accesibilidad. Fuentes e ilustración se sirven localmente.
 
+La escena gráfica del inicio es un componente cliente aislado con animaciones CSS de transformaciones. Solo el control de pausa utiliza estado de React; no hay un bucle de JavaScript por fotograma ni una dependencia adicional de animación. La preferencia de movimiento reducido conserva la composición estática.
+
 ## Límites de módulos
 
 - `content/catalog.ts`: actividad, requisitos y taxonomía inicial.

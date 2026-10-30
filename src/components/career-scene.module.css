@@ -1,0 +1,551 @@
+.scene {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.stage {
+  position: relative;
+  height: 586px;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 36px;
+}
+
+.grid {
+  position: absolute;
+  inset: 8% 0 3%;
+  z-index: -2;
+  background-image: radial-gradient(#a8b9e2 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse, #0009, transparent 70%);
+}
+
+.glow {
+  position: absolute;
+  inset: 20% 2% 10%;
+  z-index: -1;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 35% 65%, #d8ef694a, transparent 65%),
+    radial-gradient(ellipse at 70% 35%, #d9e4ffb3, transparent 70%);
+}
+
+.orbit,
+.smallOrbit {
+  position: absolute;
+  width: 86%;
+  aspect-ratio: 1;
+  top: 12%;
+  left: 7%;
+  border: 1px dashed #c8d5f4;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.orbit {
+  animation: orbit 42s linear infinite;
+}
+
+.orbit > span {
+  position: absolute;
+  top: 12%;
+  left: 14%;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--paper);
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.smallOrbit {
+  width: 66%;
+  left: 17%;
+  top: 21%;
+  border-style: solid;
+  border-color: #e2e8f7;
+}
+
+.topLabel {
+  position: absolute;
+  top: 3%;
+  right: 7%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.topLabel svg {
+  color: var(--blue);
+}
+
+.illustration {
+  position: absolute;
+  left: -3%;
+  top: 23%;
+  width: 106%;
+  animation: illustration-float 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+.illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.floatingCard {
+  position: absolute;
+  padding: 16px 18px;
+  border: 1px solid #e1e7f3;
+  border-radius: 17px;
+  background: #fffffff5;
+  box-shadow:
+    0 12px 35px #334a7d0c,
+    0 2px 5px #334a7d04;
+  animation: card-float 7s ease-in-out infinite;
+}
+
+.cardLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 8px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+}
+
+.cardLabel svg {
+  color: var(--blue);
+}
+
+.floatingCard strong {
+  display: block;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 27px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.25;
+  margin-top: 6px;
+}
+
+.design {
+  top: 10%;
+  left: 4%;
+  width: 192px;
+  transform: rotate(-5deg);
+  --card-angle: -5deg;
+  animation-delay: -1.5s;
+}
+
+.swatches {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.swatches span {
+  height: 18px;
+  width: 27px;
+  border-radius: 5px;
+  background: var(--blue);
+}
+
+.swatches span:nth-child(2) {
+  background: #a9bcff;
+}
+.swatches span:nth-child(3) {
+  background: var(--lime);
+}
+.swatches i {
+  width: 30px;
+  height: 5px;
+  margin-left: auto;
+  border-radius: 4px;
+  background: #e3e9f5;
+}
+
+.data {
+  top: 20%;
+  right: 1%;
+  width: 166px;
+  --card-angle: 5deg;
+  animation-delay: -4s;
+}
+
+.bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 46px;
+  margin-top: 10px;
+}
+
+.bars span {
+  flex: 1;
+  height: 44%;
+  border-radius: 4px 4px 2px 2px;
+  background: #b7c8ff;
+  transform-origin: bottom;
+  animation: chart-breathe 5s ease-in-out infinite;
+}
+
+.bars span:nth-child(2) {
+  height: 69%;
+  animation-delay: -0.5s;
+}
+.bars span:nth-child(3) {
+  height: 56%;
+  animation-delay: -1s;
+}
+.bars span:nth-child(4) {
+  height: 83%;
+  background: var(--blue);
+  animation-delay: -1.5s;
+}
+.bars span:nth-child(5) {
+  height: 100%;
+  background: var(--lime);
+  animation-delay: -2s;
+}
+
+.create {
+  bottom: 17%;
+  left: 0;
+  width: 176px;
+  --card-angle: -4deg;
+  animation-delay: -5s;
+}
+
+.storyboard {
+  display: grid;
+  grid-template-columns: 1.1fr 0.8fr 0.8fr;
+  gap: 6px;
+  height: 35px;
+  margin-top: 10px;
+}
+
+.storyboard > span {
+  border-radius: 5px;
+  background: #dee7ff;
+}
+.storyboard > span:first-child {
+  background: var(--blue);
+  padding: 7px;
+}
+.storyboard > span:last-child {
+  background: #e4f2b8;
+}
+.storyboard i {
+  display: block;
+  height: 3px;
+  border-radius: 3px;
+  background: #ffffffa6;
+  margin: 3px 0;
+}
+.storyboard i:last-child {
+  width: 65%;
+}
+
+.portfolio {
+  bottom: 3%;
+  right: 3%;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 238px;
+  --card-angle: 3deg;
+  animation-delay: -2.5s;
+}
+
+.portfolioIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 49px;
+  border-radius: 12px;
+  background: #eef5d8;
+  color: #5f7425;
+  flex-shrink: 0;
+}
+.portfolioLabel {
+  display: block;
+  color: var(--muted);
+  font-size: 8px;
+  font-weight: 650;
+  letter-spacing: 0.07em;
+}
+.portfolio strong {
+  margin-top: 2px;
+  font-size: 25px;
+}
+.portfolio small {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+.spark {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--lime);
+  clip-path: polygon(50% 0, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0 50%, 35% 35%);
+  animation: spark-breathe 5s ease-in-out infinite;
+}
+.sparkOne {
+  top: 6%;
+  left: 47%;
+}
+.sparkTwo {
+  bottom: 14%;
+  left: 43%;
+  width: 12px;
+  height: 12px;
+  animation-delay: -2s;
+}
+.dot {
+  position: absolute;
+  top: 44%;
+  left: 3%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #819eff;
+}
+
+.sceneFooter {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 12px 0;
+}
+.sceneFooter figcaption {
+  color: var(--muted);
+  font-size: 11px;
+}
+.motionControl {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid #e0e6f1;
+  border-radius: 20px;
+  background: white;
+  padding: 7px 11px;
+  color: var(--muted);
+  font-size: 10px;
+  min-height: 34px;
+}
+.motionControl:hover {
+  color: var(--blue);
+  border-color: #a7bafd;
+}
+.scene[data-paused="true"] *,
+.scene[data-paused="true"] *::before,
+.scene[data-paused="true"] *::after {
+  animation-play-state: paused;
+}
+
+@keyframes illustration-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+@keyframes card-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--card-angle));
+  }
+  50% {
+    transform: translateY(-8px) rotate(calc(var(--card-angle) + 1deg));
+  }
+}
+@keyframes chart-breathe {
+  0%,
+  100% {
+    transform: scaleY(0.82);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spark-breathe {
+  0%,
+  100% {
+    transform: scale(0.85) rotate(0);
+  }
+  50% {
+    transform: scale(1.1) rotate(15deg);
+  }
+}
+
+@media (min-width: 1500px) {
+  .stage {
+    height: 630px;
+  }
+}
+@media (min-width: 761px) and (max-width: 1100px) {
+  .stage {
+    height: 550px;
+  }
+  .floatingCard {
+    padding: 13px;
+  }
+  .design {
+    width: 160px;
+    left: 0;
+  }
+  .data {
+    width: 145px;
+    right: 0;
+    top: 24%;
+  }
+  .create {
+    width: 150px;
+  }
+  .portfolio {
+    width: 211px;
+    right: 0;
+  }
+  .cardLabel {
+    font-size: 7px;
+  }
+  .sceneFooter {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media (max-width: 760px) {
+  .scene {
+    grid-column: 1;
+    grid-row: auto;
+    width: min(100%, 470px);
+    margin: 0 auto;
+  }
+  .stage {
+    height: 390px;
+  }
+  .illustration {
+    top: 25%;
+    left: 0;
+    width: 100%;
+  }
+  .floatingCard {
+    padding: 10px 12px;
+    border-radius: 12px;
+  }
+  .floatingCard strong {
+    font-size: 23px;
+  }
+  .design {
+    top: 7%;
+    width: 143px;
+  }
+  .data {
+    top: 19%;
+    width: 130px;
+    right: 0;
+  }
+  .create {
+    width: 133px;
+    bottom: 12%;
+  }
+  .portfolio {
+    width: 191px;
+    padding: 10px;
+    right: 0;
+    bottom: 0;
+    gap: 9px;
+  }
+  .portfolio strong {
+    font-size: 22px;
+  }
+  .portfolioIcon {
+    width: 33px;
+    height: 38px;
+    border-radius: 9px;
+  }
+  .portfolio small {
+    font-size: 8px;
+  }
+  .portfolioLabel,
+  .cardLabel {
+    font-size: 7px;
+  }
+  .topLabel {
+    font-size: 8px;
+    top: 0;
+    right: 1%;
+  }
+  .bars {
+    height: 30px;
+  }
+  .storyboard {
+    height: 27px;
+  }
+  .swatches {
+    margin-top: 8px;
+  }
+  .swatches span {
+    width: 22px;
+    height: 14px;
+  }
+  .sceneFooter {
+    margin: 12px 0 0;
+  }
+  .sceneFooter figcaption {
+    font-size: 10px;
+    max-width: 200px;
+  }
+  .motionControl {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 10px;
+  }
+  .motionControl span {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene *,
+  .scene *::before,
+  .scene *::after {
+    animation: none !important;
+    will-change: auto;
+  }
+  .motionControl {
+    display: none;
+  }
+  .design {
+    transform: rotate(-5deg);
+  }
+  .data {
+    transform: rotate(5deg);
+  }
+  .create {
+    transform: rotate(-4deg);
+  }
+  .portfolio {
+    transform: rotate(3deg);
+  }
+}

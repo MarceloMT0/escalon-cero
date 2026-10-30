@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { ChartNoAxesColumnIncreasing, ClipboardList, Compass, MoveRight } from "lucide-react";
 import { AreaGrid } from "@/components/area-grid";
+import { CareerScene } from "@/components/career-scene";
 
 export default function HomePage() {
   return (
@@ -13,18 +13,6 @@ export default function HomePage() {
         <p>Elige qué quieres aprender y practica tareas de un rol junior.</p>
       </section>
       <section className="hero-grid home-discovery" aria-label="Encuentra tu área de interés">
-        <div className="hero-art">
-          <div className="hero-glow" />
-          <Image
-            src="/images/primer-paso.webp"
-            width={1000}
-            height={667}
-            alt="Tres escalones azules hacia un primer logro profesional"
-            priority
-            sizes="(max-width: 760px) 90vw, 46vw"
-          />
-          <span className="art-caption">Un proyecto. Un aprendizaje. Un paso más.</span>
-        </div>
         <section className="discovery-card" aria-labelledby="discovery-title">
           <span className="eyebrow lime-badge">ELIGE TU PUNTO DE PARTIDA</span>
           <h2 id="discovery-title">¿En qué área quieres dar tu primer paso?</h2>
@@ -36,6 +24,7 @@ export default function HomePage() {
             Hoy puedes explorar prácticas de software. Las demás áreas están en preparación.
           </p>
         </section>
+        <CareerScene />
       </section>
       <section className="steps-row" aria-label="Cómo funciona">
         {[
