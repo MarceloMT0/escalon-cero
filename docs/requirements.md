@@ -7,6 +7,7 @@ Estudiantes de últimos ciclos y egresados que necesitan practicar tareas de un 
 ## Alcance implementado
 
 - Una actividad funcional en Ingeniería de software / QA.
+- Identidad de archivo común en todas las páginas: franja cobalto, navegación, tipografía sans serif, superficies y controles coherentes; adaptación móvil e impresión de portafolio sin navegación.
 - Inicio orientado a elegir un área de interés, sin recomendar QA antes de conocerla. Todas las áreas son visibles; las que no tienen contenido indican «Próximamente».
 - Inicio con carpetas interactivas (opción G aprobada): apertura con clic, toque o teclado, una carpeta expandida a la vez y movimiento reducido por preferencia del sistema o control manual. Las áreas pendientes muestran descripción y «Próximamente», sin enlace de inicio. En móvil se apilan.
 - Navegación Área → Rol → Actividades. Ingeniería de software muestra QA / Testing y los roles pendientes Frontend y Backend. QA tiene un catálogo propio con búsqueda insensible a tildes y una colección preparada para varias actividades; hoy solo una está disponible. Otras áreas, roles y futuras incorporaciones se identifican como «Próximamente».

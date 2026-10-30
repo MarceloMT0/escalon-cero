@@ -1,0 +1,337 @@
+/* Shared archive identity for every route; the homepage only owns its folders. */
+.site-frame {
+  margin: 0 48px 0 176px;
+  max-width: 1600px;
+  min-width: 0;
+}
+.archive-spine {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 112px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--blue);
+  color: white;
+  z-index: 20;
+}
+.archive-spine > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+}
+.archive-spine .brand-mark {
+  width: 36px;
+  height: 38px;
+  transform: scale(1.2);
+}
+.archive-spine .brand-mark i {
+  background: white;
+}
+.archive-spine .brand-mark i:last-child {
+  background: var(--lime);
+}
+.archive-wordmark {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+.spine-caption {
+  font-size: 12px;
+  line-height: 1.7;
+  border-top: 1px solid #ffffff60;
+  padding-top: 16px;
+}
+.archive-spine a:focus-visible {
+  outline-color: white;
+}
+.site-frame .site-header {
+  width: 100%;
+  margin: 0;
+  padding: 18px 0;
+  min-height: 86px;
+  display: flex;
+  justify-content: space-between;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  gap: 20px;
+}
+.site-frame .site-header nav {
+  width: auto;
+  gap: 28px;
+  padding: 0;
+  border: 0;
+}
+.site-frame .site-header nav a {
+  padding: 10px 0;
+  border-radius: 0;
+  font-size: 14px;
+  flex: none;
+  min-height: 44px;
+}
+.site-frame .site-header nav a.active {
+  background: transparent;
+  box-shadow: 0 2px var(--blue);
+  font-weight: 700;
+}
+.site-frame .header-actions {
+  gap: 18px;
+}
+.site-frame .header-search {
+  display: inline-flex;
+  min-width: 44px;
+  min-height: 44px;
+}
+.site-frame .account-trigger {
+  border-radius: 6px;
+  background: var(--blue-soft);
+}
+.site-frame .page-container {
+  width: 100%;
+  margin: 0;
+}
+.site-frame .internal-page,
+.site-frame .workspace-page {
+  padding-top: 44px;
+}
+.archive-content {
+  padding-top: 44px;
+}
+.site-frame .site-footer {
+  width: 100%;
+  margin: 48px 0 0;
+}
+.site-frame h1 {
+  font-weight: 750;
+  letter-spacing: -0.055em;
+  line-height: 1.1;
+}
+.site-frame .archive-intro h1 {
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.065em;
+}
+.site-frame
+  :is(
+    .catalog-card h2,
+    .featured-card h2,
+    .panel-heading h2,
+    .portfolio-placeholder h2,
+    .portfolio-project > h2
+  ) {
+  font-weight: 750;
+  letter-spacing: -0.045em;
+  line-height: 1.2;
+}
+.site-frame
+  :is(
+    .surface,
+    .activity-card,
+    .role-directory-card,
+    .catalog-next-activities,
+    .portfolio-document,
+    .portfolio-placeholder,
+    .shop-window,
+    .shop-checkout
+  ) {
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+.site-frame
+  :is(
+    .activity-card,
+    .role-directory-card,
+    .sticky-card,
+    .portfolio-document,
+    .portfolio-settings,
+    :where(.workspace-main) > .surface,
+    .empty-practice
+  ) {
+  border-top: 3px solid var(--blue);
+}
+.site-frame .role-directory-card:not(:has(a)) {
+  border-top-color: var(--archive-border);
+}
+.site-frame
+  :is(
+    .entry-card,
+    .editor-form,
+    .notice,
+    .share-disclosure,
+    .workspace-tab,
+    .portfolio-report,
+    .search-field
+  ) {
+  border-radius: var(--control-radius);
+}
+.site-frame :is(.button, .button-small) {
+  border-radius: var(--control-radius);
+  box-shadow: none;
+}
+.site-frame :is(.button-primary, .folder-action) {
+  background: var(--blue);
+}
+.site-frame :is(.button-primary:hover, .folder-action:hover) {
+  background: var(--blue-dark);
+}
+.site-frame :is(.lime-badge, .coming-badge, .portfolio-role) {
+  border-radius: 4px;
+}
+.site-frame .workspace-sidebar {
+  padding: 18px 14px;
+  background: #f2f3ef;
+  border: 1px solid #cbd3e1;
+  border-top: 3px solid var(--blue);
+  border-radius: 0 8px 8px 8px;
+}
+.site-frame .workspace-tab.active {
+  background: var(--blue-soft);
+  border-color: transparent;
+  box-shadow: inset 3px 0 var(--blue);
+}
+.site-frame .portfolio-cover {
+  background: var(--blue-soft);
+}
+.site-frame .portfolio-placeholder {
+  background: #f2f3ef;
+}
+.site-frame .prose {
+  margin-left: 0;
+  margin-right: 0;
+  border: 0;
+  border-top: 3px solid var(--blue);
+  border-radius: 0;
+  background: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+.site-frame .brief-content .surface {
+  border-radius: 0;
+}
+.dialog-content {
+  border-radius: var(--radius);
+}
+.site-frame .storage-note br {
+  display: initial;
+}
+.site-frame
+  :is(
+    .field input:not([type="checkbox"]):not([type="radio"]),
+    .field textarea,
+    .field select,
+    .catalog-filter-field select
+  ) {
+  border-radius: var(--control-radius);
+}
+@media (min-width: 1900px) {
+  .site-frame {
+    margin-right: auto;
+  }
+}
+@media (max-width: 1100px) {
+  .archive-spine {
+    width: 84px;
+    padding: 28px 16px;
+  }
+  .site-frame {
+    margin-left: 116px;
+    margin-right: 28px;
+  }
+  .site-frame :is(.brief-layout, .workspace-layout, .portfolio-builder-layout, .shop-layout) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .site-frame :is(.workspace-sidebar, .portfolio-settings, .sticky-card) {
+    position: static;
+  }
+  .site-frame .workspace-sidebar nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .archive-spine {
+    position: absolute;
+    inset: 0 0 auto;
+    width: 100%;
+    height: 64px;
+    padding: 14px 20px;
+    flex-direction: row;
+    align-items: center;
+  }
+  .archive-spine > a {
+    flex-direction: row;
+    gap: 10px;
+  }
+  .archive-spine .brand-mark {
+    transform: scale(0.85);
+    width: 28px;
+    height: 30px;
+  }
+  .archive-wordmark {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 22px;
+  }
+  .spine-caption {
+    display: none;
+  }
+  .site-frame {
+    margin: 64px 20px 0;
+  }
+  .site-frame .site-header {
+    min-height: 70px;
+    padding: 10px 0;
+    gap: 10px;
+  }
+  .site-frame .site-header nav {
+    gap: 16px;
+  }
+  .site-frame .site-header nav a {
+    font-size: 12px;
+  }
+  .site-frame .header-actions {
+    gap: 6px;
+  }
+  .site-frame .internal-page,
+  .site-frame .workspace-page,
+  .archive-content {
+    padding-top: 30px;
+  }
+  .site-frame .site-footer {
+    margin-top: 32px;
+  }
+}
+@media (max-width: 420px) {
+  .site-frame .header-search {
+    display: none;
+  }
+  .site-frame .header-actions {
+    gap: 0;
+  }
+  .site-frame .workspace-sidebar nav {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media print {
+  .archive-spine {
+    display: none !important;
+  }
+  .site-frame {
+    margin: 0;
+    max-width: none;
+  }
+  .site-frame .internal-page {
+    padding: 0;
+  }
+  .site-frame .portfolio-document {
+    border: 0;
+    border-radius: 0;
+  }
+}

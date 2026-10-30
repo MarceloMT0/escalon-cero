@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { ArchiveSpine } from "@/components/archive-spine";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
+import "./archive-system.css";
 
 const sans = localFont({
   src: "./fonts/PlusJakartaSans.ttf",
   variable: "--font-jakarta",
   display: "swap",
   weight: "200 800",
-});
-const serif = localFont({
-  src: "./fonts/DMSerifDisplay-Regular.ttf",
-  variable: "--font-serif",
-  display: "swap",
-  weight: "400",
 });
 export const metadata: Metadata = {
   title: {
@@ -28,10 +24,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-      <body className={`${sans.variable} ${serif.variable}`}>
-        <SiteHeader />
-        <main id="contenido">{children}</main>
-        <SiteFooter />
+      <body className={sans.variable}>
+        <ArchiveSpine />
+        <div className="site-frame">
+          <SiteHeader />
+          <main id="contenido">{children}</main>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

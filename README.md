@@ -8,7 +8,7 @@ MVP construido durante DSC HACK 2026. La primera actividad es una simulación de
 
 ![Inicio: archivo de prácticas aprobado](docs/assets/referencia-archivo-aprobada.png)
 
-La portada implementa la opción G (archivo de prácticas), con carpetas interactivas. La [referencia visual anterior](docs/assets/referencia-aprobada.png) se conserva como antecedente.
+La opción G (archivo de prácticas) define el estilo de todas las páginas, con navegación y tipografía compartidas. La portada conserva las carpetas interactivas. La [referencia visual anterior](docs/assets/referencia-aprobada.png) se conserva como antecedente.
 
 ## Ejecutar
 

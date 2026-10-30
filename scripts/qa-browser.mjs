@@ -356,8 +356,18 @@ try {
     path: fileURLToPath(new URL("portfolio-shared.png", output)),
     fullPage: true,
   });
+  await stranger.emulateMedia({ media: "print" });
+  assert.equal(
+    await stranger.locator(".archive-spine").isVisible(),
+    false,
+    "printed portfolio hides the archive rail",
+  );
+  assert.equal(
+    await stranger.locator(".site-frame").evaluate((el) => getComputedStyle(el).marginLeft),
+    "0px",
+  );
   await strangerContext.close();
-  for (const path of [
+  const themedRoutes = [
     "/",
     "/explorar/",
     "/explorar/qa/",
@@ -366,11 +376,41 @@ try {
     "/practica/",
     "/simulador/",
     "/portafolio/",
+    "/compartir/",
     "/acerca/",
-  ]) {
-    await page.setViewportSize({ width: 320, height: 844 });
-    await open(path);
-    await noOverflow(page, `mobile ${path}`);
+  ];
+  for (const width of [1440, 768, 320]) {
+    await page.setViewportSize({ width, height: 1000 });
+    for (const path of themedRoutes) {
+      await open(path);
+      await noOverflow(page, `shared theme ${width} ${path}`);
+      assert.equal(await page.locator(".archive-spine").count(), 1);
+      assert.equal(await page.locator(".archive-spine").isVisible(), true);
+      const theme = await page.evaluate(() => ({
+        headingFont: getComputedStyle(document.querySelector("h1")).fontFamily,
+        bodyFont: getComputedStyle(document.body).fontFamily,
+        headerRadius: getComputedStyle(document.querySelector(".site-header")).borderRadius,
+        frameLeft: document.querySelector(".site-frame").getBoundingClientRect().left,
+        contentLeft: document.querySelector("main > div").getBoundingClientRect().left,
+      }));
+      assert.equal(
+        theme.headingFont.split(",")[0],
+        theme.bodyFont.split(",")[0],
+        `consistent heading font on ${path}`,
+      );
+      assert.equal(theme.headerRadius, "0px", `consistent navigation on ${path}`);
+      assert.ok(Math.abs(theme.frameLeft - theme.contentLeft) <= 1, `aligned content on ${path}`);
+      const slug = path === "/" ? "home" : path.replaceAll("/", "-").replace(/^-|-$/g, "");
+      await page.screenshot({
+        path: fileURLToPath(new URL(`theme-${width}-${slug}.png`, output)),
+        animations: "disabled",
+      });
+      if (
+        width === 1440 &&
+        ["/actividad/qa-tienda/", "/practica/", "/simulador/", "/portafolio/"].includes(path)
+      )
+        await accessibility(`shared theme ${path}`);
+    }
   }
   const footer = page.getByRole("contentinfo");
   await footer.getByRole("link", { name: "Preguntas frecuentes", exact: true }).click();
@@ -433,6 +473,8 @@ try {
       "cross-browser portable share without private evidence",
       "mobile overflow",
       "account dialog",
+      "shared theme across routes at 1440, 768 and 320 pixels",
+      "portfolio print layout without app navigation",
       "footer navigation, anchors, keyboard FAQ and back to top",
     ],
     browserErrors: errors,

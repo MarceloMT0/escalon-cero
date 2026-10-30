@@ -1,89 +1,6 @@
-/* Home-only archive identity. Route-scoped selectors also reset on client navigation. */
-body:has(.archive-home) .site-header {
-  width: auto;
-  margin: 0 48px 0 176px;
-  padding: 18px 0;
-  min-height: 86px;
-  display: flex;
-  justify-content: space-between;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-}
-body:has(.archive-home) .site-header > a {
-  display: none;
-}
-body:has(.archive-home) .site-header nav {
-  gap: 28px;
-}
-body:has(.archive-home) .site-header nav a {
-  padding: 10px 0;
-  border-radius: 0;
-  font-size: 14px;
-}
-body:has(.archive-home) .site-header nav a.active {
-  background: transparent;
-  box-shadow: 0 2px var(--blue);
-  font-weight: 700;
-}
-body:has(.archive-home) .site-footer {
-  width: auto;
-  margin: 48px 48px 0 176px;
-}
+/* Folder interactions and homepage composition; shared chrome lives in archive-system.css. */
 .archive-home {
   --archive-border: #bbc2cc;
-}
-.archive-spine {
-  position: fixed;
-  inset: 0 auto 0 0;
-  width: 112px;
-  padding: 32px 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: var(--blue);
-  color: white;
-  z-index: 20;
-}
-.archive-spine > a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 26px;
-}
-.archive-spine .brand-mark {
-  width: 36px;
-  height: 38px;
-  transform: scale(1.2);
-}
-.archive-spine .brand-mark i {
-  background: white;
-}
-.archive-spine .brand-mark i:last-child {
-  background: var(--lime);
-}
-.archive-wordmark {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  font-size: 27px;
-  font-weight: 800;
-  letter-spacing: -1px;
-}
-.spine-caption {
-  font-size: 12px;
-  line-height: 1.7;
-  border-top: 1px solid #ffffff60;
-  padding-top: 16px;
-}
-.archive-spine a:focus-visible {
-  outline-color: white;
-}
-.archive-content {
-  margin: 0 48px 0 176px;
-  padding-top: 44px;
-  max-width: 1600px;
 }
 .archive-intro h1 {
   font-family: var(--font-jakarta), sans-serif;
@@ -374,19 +291,6 @@ body:has(.archive-home) .site-footer {
   transform: none !important;
 }
 @media (max-width: 1100px) {
-  .archive-spine {
-    width: 84px;
-    padding: 28px 16px;
-  }
-  .archive-content {
-    margin-left: 116px;
-    margin-right: 28px;
-  }
-  body:has(.archive-home) .site-header,
-  body:has(.archive-home) .site-footer {
-    margin-left: 116px;
-    margin-right: 28px;
-  }
   .archive-folders {
     flex-wrap: wrap;
     gap: 12px;
@@ -432,62 +336,6 @@ body:has(.archive-home) .site-footer {
   }
 }
 @media (max-width: 600px) {
-  .archive-spine {
-    position: absolute;
-    inset: 0 0 auto;
-    width: 100%;
-    height: 64px;
-    padding: 14px 22px;
-    flex-direction: row;
-    align-items: center;
-  }
-  .archive-spine > a {
-    flex-direction: row;
-    gap: 10px;
-  }
-  .archive-spine .brand-mark {
-    transform: scale(0.85);
-    height: 30px;
-    width: 28px;
-  }
-  .archive-wordmark {
-    writing-mode: horizontal-tb;
-    transform: none;
-    font-size: 22px;
-  }
-  .spine-caption {
-    display: none;
-  }
-  body:has(.archive-home) .site-header {
-    margin: 64px 20px 0;
-    min-height: 70px;
-    padding: 10px 0;
-    gap: 10px;
-  }
-  body:has(.archive-home) .site-header nav {
-    width: auto;
-    border: 0;
-    padding: 0;
-    gap: 16px;
-  }
-  body:has(.archive-home) .site-header nav a {
-    font-size: 12px;
-    flex: none;
-  }
-  body:has(.archive-home) .header-search {
-    display: none;
-  }
-  body:has(.archive-home) .header-actions {
-    gap: 0;
-  }
-  body:has(.archive-home) .site-footer {
-    margin: 32px 20px 0;
-    font-size: 12px;
-  }
-  .archive-content {
-    margin: 0 20px;
-    padding-top: 30px;
-  }
   .archive-intro h1 {
     font-size: clamp(40px, 10vw, 60px);
     letter-spacing: -0.06em;

@@ -40,7 +40,7 @@ Pruebas de dominio con Node Test Runner y tsx. Recorrido de navegador con Playwr
 
 ## Diseño de interfaz
 
-La opción G, aprobada posteriormente por el usuario, define el inicio como un archivo de prácticas: franja lateral cobalto, encabezado sans serif y carpetas con pestañas. `app/archive-home.css` acota esta identidad a la portada; las otras rutas conservan su navegación y estilo. En móvil las carpetas se apilan. Las áreas pendientes se pueden abrir para consultar su descripción, pero no ofrecen un enlace para comenzar. Los recursos y la referencia visual anteriores se conservan como antecedentes.
+La opción G, aprobada por el usuario y extendida a todas las páginas a su petición, define la identidad compartida: franja lateral cobalto, encabezados sans serif y superficies de archivo. `components/archive-spine.tsx` vive en el layout raíz y `app/archive-system.css` define navegación, márgenes, tipografía, botones y superficies comunes. `app/archive-home.css` conserva únicamente la composición y las interacciones de las carpetas. En móvil las carpetas se apilan. Las áreas pendientes se pueden abrir para consultar su descripción, pero no ofrecen un enlace para comenzar. Los recursos y la referencia visual anteriores se conservan como antecedentes.
 
 Los estilos compartidos elevan la escala de texto auxiliar a 13–14 px, los campos a 16 px y los controles principales a un mínimo de 44 px. Encargo, catálogo y portafolio usan jerarquías distintas: lectura continua, actividad destacada y documento de trabajo. Las transiciones de interacción y avisos son breves y respetan movimiento reducido. No se incorpora una dependencia de animación ni se modifica la persistencia.
 
@@ -73,3 +73,9 @@ Las sugerencias y los cambios de resultados usan transiciones breves de desplaza
 ## Pie de página compartido
 
 `components/site-footer.tsx` muestra marca, descripción breve, navegación de exploración/espacio personal/proyecto, enlace al repositorio y retorno al contenido principal. Los grupos de enlaces y las preguntas frecuentes se mantienen en `content/site.ts`. Los enlaces sobre datos y preguntas llevan a secciones identificadas de `/acerca/`; las preguntas usan elementos nativos `details`/`summary`. No se añaden contactos, redes sociales ni políticas legales ficticias. La cuadrícula se adapta a móvil y conserva los márgenes del archivo de inicio; los iconos responden al hover y respetan movimiento reducido. El pie sigue oculto al imprimir portafolios.
+
+## Consistencia visual entre rutas
+
+Todas las rutas (incluidas práctica, simulador, portafolio compartido y errores) comparten el mismo marco de navegación. La franja de marca pasa de lateral a superior a 760 px; el ancho y los márgenes del contenido y del pie se definen una sola vez. Se elimina la carga de DM Serif; su archivo se conserva como recurso previo. Plus Jakarta Sans es la tipografía única para cuerpo y títulos. Tarjetas de 8 px, controles de 6 px, líneas cobalto y estados activos discretos sustituyen las cabeceras redondeadas y títulos serif anteriores.
+
+Los espacios de trabajo se apilan a 1100 px para acomodar el ancho ocupado por la franja lateral. En impresión se ocultan franja y navegación y se retira el margen del marco para conservar el portafolio como documento. Se preservan interacciones, movimiento reducido, lógica del ejercicio y persistencia.

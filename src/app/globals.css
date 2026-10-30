@@ -16,7 +16,9 @@
   --blue-soft: #edf2ff;
   --lime: #d8ef69;
   --line: #e7eaf0;
-  --radius: 22px;
+  --radius: 8px;
+  --control-radius: 6px;
+  --archive-border: #bbc2cc;
 }
 
 * {
@@ -95,8 +97,8 @@ h4 {
   letter-spacing: -0.035em;
 }
 h1 {
-  font-family: var(--font-serif), Georgia, serif;
-  font-weight: 400;
+  font-family: var(--font-jakarta), Arial, sans-serif;
+  font-weight: 750;
   font-size: clamp(38px, 4.7vw, 60px);
   line-height: 1.12;
 }
@@ -267,7 +269,7 @@ select:focus-visible {
   gap: 9px;
   padding: 12px 20px;
   min-height: 46px;
-  border-radius: 12px;
+  border-radius: var(--control-radius);
   border: 1px solid transparent;
   font-size: 14px;
   font-weight: 650;
@@ -785,8 +787,8 @@ body:has(.practice-archive[data-motion="off"]) .footer-utilities svg {
   grid-row: 1;
 }
 .discovery-card h2 {
-  font-family: var(--font-serif), Georgia, serif;
-  font-weight: 400;
+  font-family: var(--font-jakarta), Arial, sans-serif;
+  font-weight: 750;
   font-size: 34px;
   line-height: 1.1;
   margin: 17px 0 12px;
@@ -891,8 +893,8 @@ body:has(.practice-archive[data-motion="off"]) .footer-utilities svg {
   background: #d8dde8;
 }
 .featured-card h2 {
-  font-family: var(--font-serif), Georgia, serif;
-  font-weight: 400;
+  font-family: var(--font-jakarta), Arial, sans-serif;
+  font-weight: 750;
   font-size: clamp(26px, 2.5vw, 35px);
   line-height: 1.05;
   margin-bottom: 13px;
@@ -1149,9 +1151,9 @@ body:has(.practice-archive[data-motion="off"]) .footer-utilities svg {
   padding: 25px;
 }
 .catalog-card h2 {
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-jakarta), Arial, sans-serif;
   font-size: 28px;
-  font-weight: 400;
+  font-weight: 750;
   margin: 12px 0;
 }
 .catalog-card .activity-card-bottom {
@@ -1487,9 +1489,9 @@ progress::-webkit-progress-value {
   margin: 0 0 22px;
 }
 .panel-heading h2 {
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-jakarta), Arial, sans-serif;
   font-size: 32px;
-  font-weight: 400;
+  font-weight: 750;
 }
 .panel-heading p {
   margin-top: 10px;
@@ -1759,7 +1761,7 @@ progress::-webkit-progress-value {
   gap: 20px;
 }
 .shop-brand {
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-jakarta), Arial, sans-serif;
   font-size: 40px;
   letter-spacing: -0.04em;
   line-height: 1;
@@ -1828,7 +1830,7 @@ progress::-webkit-progress-value {
 .product-stage-caption {
   position: absolute;
   bottom: 20px;
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-jakarta), Arial, sans-serif;
   font-size: 18px;
   color: var(--muted);
 }
@@ -1884,9 +1886,9 @@ progress::-webkit-progress-value {
   background: #fff;
 }
 .shop-checkout > h2 {
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-jakarta), Arial, sans-serif;
   font-size: 29px;
-  font-weight: 400;
+  font-weight: 750;
   margin-bottom: 25px;
 }
 .shop-checkout > .field {
@@ -2027,10 +2029,10 @@ progress::-webkit-progress-value {
   min-height: 550px;
 }
 .portfolio-placeholder h2 {
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-jakarta), Arial, sans-serif;
   font-size: 35px;
   max-width: 430px;
-  font-weight: 400;
+  font-weight: 750;
 }
 .portfolio-placeholder p {
   font-size: 14px;
@@ -2079,7 +2081,7 @@ progress::-webkit-progress-value {
   background: var(--blue);
   color: white;
   border-radius: 17px;
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-jakarta), Arial, sans-serif;
   font-size: 28px;
   flex-shrink: 0;
 }
@@ -2125,9 +2127,9 @@ progress::-webkit-progress-value {
   font-size: 13px;
 }
 .portfolio-project > h2 {
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-jakarta), Arial, sans-serif;
   font-size: 30px;
-  font-weight: 400;
+  font-weight: 750;
   line-height: 1.15;
   margin-bottom: 15px;
 }
@@ -2252,9 +2254,9 @@ progress::-webkit-progress-value {
   margin-bottom: 8px;
 }
 .reflection-section h3 {
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-jakarta), Arial, sans-serif;
   font-size: 25px;
-  font-weight: 400;
+  font-weight: 750;
 }
 .reflection-section p {
   font-size: 13px;

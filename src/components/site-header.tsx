@@ -4,20 +4,6 @@ import { usePathname } from "next/navigation";
 import { Search } from "lucide-react";
 import { AccountDialog } from "./account-dialog";
 
-export function Logo() {
-  return (
-    <span className="brand">
-      <span className="brand-mark" aria-hidden="true">
-        <i />
-        <i />
-        <i />
-      </span>
-      <span>
-        escalón cero<span className="brand-dot">.</span>
-      </span>
-    </span>
-  );
-}
 export function SiteHeader() {
   const pathname = usePathname();
   return (
@@ -26,9 +12,6 @@ export function SiteHeader() {
         Saltar al contenido
       </a>
       <header className="site-header">
-        <Link href="/" aria-label="Escalón Cero, inicio">
-          <Logo />
-        </Link>
         <nav aria-label="Navegación principal">
           {[
             {
@@ -48,7 +31,7 @@ export function SiteHeader() {
             {
               href: "/portafolio/",
               label: "Mi portafolio",
-              active: pathname.startsWith("/portafolio"),
+              active: pathname.startsWith("/portafolio") || pathname.startsWith("/compartir"),
             },
           ].map((item) => (
             <Link
