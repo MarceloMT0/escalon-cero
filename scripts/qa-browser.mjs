@@ -42,6 +42,14 @@ async function accessibility(label) {
 try {
   await open("/");
   assert.match(await page.title(), /Escalón Cero/);
+  await page.getByRole("heading", { name: "¿En qué área quieres dar tu primer paso?" }).waitFor();
+  await page.getByText("Marketing digital", { exact: true }).waitFor();
+  assert.equal(
+    await page.getByRole("link", { name: "Ver actividad", exact: true }).count(),
+    0,
+    "home does not recommend an activity before area selection",
+  );
+  assert.equal(await page.locator(".home-area-picker .coming-badge").count(), 4);
   await noOverflow(page, "desktop home");
   await screenshot("home-desktop");
   await accessibility("home");
@@ -51,7 +59,7 @@ try {
   }
   await screenshot("home-mobile");
   await page.setViewportSize({ width: 1440, height: 1080 });
-  await open("/explorar/");
+  await page.getByRole("link", { name: /Ingeniería de software/ }).click();
   await page.getByRole("textbox", { name: "Buscar actividades" }).fill("sin-coincidencias");
   await page.getByRole("heading", { name: "Aún no hay una práctica para esta búsqueda" }).waitFor();
   await page.getByRole("button", { name: "Limpiar filtros" }).click();

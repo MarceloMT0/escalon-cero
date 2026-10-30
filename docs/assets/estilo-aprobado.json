@@ -12,7 +12,7 @@
     "Navegación superior horizontal en una superficie blanca redondeada",
     "Azul cobalto para acciones principales, tinta oscura para textos y lima para acentos puntuales",
     "Ilustración de escalones que comunica explorar, practicar y mostrar el trabajo",
-    "Una actividad protagonista dentro de una tarjeta blanca con sombra suave",
+    "Una tarjeta protagonista blanca con sombra suave; en inicio presenta áreas de interés",
     "Etiquetas discretas de rol, nivel, duración y simulación laboral",
     "Bloque de tres pasos y exploración por áreas al final",
     "Áreas sin actividades claramente identificadas como Próximamente"
@@ -36,5 +36,6 @@
     "Mostrar una sola actividad funcional en el MVP",
     "Identificar las prácticas como simulaciones y no como experiencia laboral contratada",
     "No presentar el mockup completo como una imagen en lugar de una interfaz funcional"
-  ]
+  ],
+  "regla_de_inicio": "Presentar áreas e intereses antes de una actividad específica. No recomendar QA a visitantes cuyo objetivo aún no se conoce. Áreas sin contenido deben indicar Próximamente."
 }

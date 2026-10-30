@@ -1,13 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import {
-  ArrowRight,
-  ChartNoAxesColumnIncreasing,
-  ClipboardList,
-  Compass,
-  MoveRight,
-} from "lucide-react";
-import { ActivityCard } from "@/components/activity-card";
+import { ChartNoAxesColumnIncreasing, ClipboardList, Compass, MoveRight } from "lucide-react";
 import { AreaGrid } from "@/components/area-grid";
 
 export default function HomePage() {
@@ -18,29 +10,39 @@ export default function HomePage() {
         <h1>
           Tu experiencia empieza <span className="heading-mark">haciendo.</span>
         </h1>
-        <p>Practica tareas de un rol junior y muestra lo que sabes hacer.</p>
+        <p>Elige qué quieres aprender y practica tareas de un rol junior.</p>
       </section>
-      <section className="hero-grid" aria-label="Tu primera oportunidad de practicar">
+      <section className="hero-grid home-discovery" aria-label="Encuentra tu área de interés">
         <div className="hero-art">
           <div className="hero-glow" />
           <Image
-            src="/images/escalones.webp"
+            src="/images/primer-paso.webp"
             width={1000}
             height={667}
-            alt="Tres escalones azules que llevan hacia una tienda online y una lupa de testing"
+            alt="Tres escalones azules hacia un primer logro profesional"
             priority
             sizes="(max-width: 760px) 90vw, 46vw"
           />
           <span className="art-caption">Un proyecto. Un aprendizaje. Un paso más.</span>
         </div>
-        <ActivityCard />
+        <section className="discovery-card" aria-labelledby="discovery-title">
+          <span className="eyebrow lime-badge">ELIGE TU PUNTO DE PARTIDA</span>
+          <h2 id="discovery-title">¿En qué área quieres dar tu primer paso?</h2>
+          <p>Encuentra prácticas relacionadas con lo que te interesa aprender.</p>
+          <div className="home-area-picker">
+            <AreaGrid all />
+          </div>
+          <p className="discovery-note">
+            Hoy puedes explorar prácticas de software. Las demás áreas están en preparación.
+          </p>
+        </section>
       </section>
       <section className="steps-row" aria-label="Cómo funciona">
         {[
           {
             Icon: Compass,
-            title: "1. Explora",
-            text: "Conoce el contexto, el objetivo y las herramientas.",
+            title: "1. Elige tu área",
+            text: "Explora los roles y encuentra una práctica que te interese.",
           },
           {
             Icon: ClipboardList,
@@ -64,15 +66,6 @@ export default function HomePage() {
             {index < 2 ? <MoveRight className="step-arrow" size={30} strokeWidth={1} /> : null}
           </div>
         ))}
-      </section>
-      <section className="home-areas">
-        <div className="section-heading">
-          <h2>Explora por área</h2>
-          <Link href="/explorar/">
-            Ver todas las áreas <ArrowRight size={16} />
-          </Link>
-        </div>
-        <AreaGrid />
       </section>
       <div className="home-note">
         <span className="status-dot" />

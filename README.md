@@ -21,7 +21,7 @@ Abrir la URL local que imprime Next.js. Sin variables de entorno, todo el recorr
 
 ## Recorrido funcional
 
-1. Explorar y filtrar el catálogo.
+1. Elegir un área de interés desde el inicio; después explorar y filtrar el catálogo disponible.
 2. Abrir el encargo de QA y empezar la práctica.
 3. Leer cinco requisitos y probar una tienda con errores educativos reproducibles.
 4. Guardar al menos tres casos ejecutados, dos reportes y una reflexión.
