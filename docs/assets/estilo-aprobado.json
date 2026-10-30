@@ -1,0 +1,40 @@
+{
+  "proyecto": "Escalón Cero",
+  "fecha": "2026-10-29",
+  "estado": "Referencia visual aprobada explícitamente por el usuario",
+  "referencia": "referencia-aprobada.png",
+  "variante_elegida": "Mockup inspirado en Brilliant",
+  "instruccion_para_futuras_implementaciones": "Usar esta referencia y estos criterios como punto de partida visual. Las otras variantes son exploraciones anteriores.",
+  "criterios_aprobados_visualmente": [
+    "Interfaz clara, moderna, cercana, profesional y con energía",
+    "Fondo marfil muy claro con abundante espacio libre",
+    "Encabezados grandes con tipografía serif editorial; cuerpo e interfaz sans serif",
+    "Navegación superior horizontal en una superficie blanca redondeada",
+    "Azul cobalto para acciones principales, tinta oscura para textos y lima para acentos puntuales",
+    "Ilustración de escalones que comunica explorar, practicar y mostrar el trabajo",
+    "Una actividad protagonista dentro de una tarjeta blanca con sombra suave",
+    "Etiquetas discretas de rol, nivel, duración y simulación laboral",
+    "Bloque de tres pasos y exploración por áreas al final",
+    "Áreas sin actividades claramente identificadas como Próximamente"
+  ],
+  "traduccion_tecnica_propuesta_no_medida_del_bitmap": {
+    "colores": {
+      "fondo": "#FAFAF7",
+      "superficie": "#FFFFFF",
+      "texto": "#14213D",
+      "texto_secundario": "#53617A",
+      "accion": "#2855F9",
+      "acento": "#D8EF69"
+    },
+    "fuente_titulos": "DM Serif Display",
+    "fuente_interfaz": "Plus Jakarta Sans",
+    "ilustracion": "Recurso de imagen independiente optimizado; reconstruir textos y controles en HTML accesible",
+    "responsive": "Dos columnas en escritorio y apilado en móvil; mantener legibilidad y jerarquía"
+  },
+  "restricciones": [
+    "La captura es una referencia de estilo; sus textos y taxonomía pueden ajustarse al alcance acordado",
+    "Mostrar una sola actividad funcional en el MVP",
+    "Identificar las prácticas como simulaciones y no como experiencia laboral contratada",
+    "No presentar el mockup completo como una imagen en lugar de una interfaz funcional"
+  ]
+}
