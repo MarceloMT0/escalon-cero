@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink, Plus } from "lucide-react";
+import { frequentlyAskedQuestions } from "@/content/site";
 import { buttonVariants } from "@/components/ui/button";
 export const metadata: Metadata = { title: "Sobre el proyecto" };
 export default function AboutPage() {
@@ -66,7 +67,7 @@ export default function AboutPage() {
             </a>
           </li>
         </ul>
-        <h2>Tu trabajo y tus datos</h2>
+        <h2 id="tus-datos">Tu trabajo y tus datos</h2>
         <p>
           Sin una cuenta conectada, los textos se conservan en el almacenamiento local del navegador
           y los archivos en IndexedDB. Borrar esos datos elimina la copia local. Si la
@@ -79,6 +80,18 @@ export default function AboutPage() {
           lo que debes evitar datos personales o información confidencial.
         </p>
         <p>No se realizan pagos en la tienda. Utiliza únicamente datos ficticios.</p>
+        <section className="about-faq" aria-labelledby="preguntas-frecuentes">
+          <h2 id="preguntas-frecuentes">Preguntas frecuentes</h2>
+          {frequentlyAskedQuestions.map((item) => (
+            <details key={item.question}>
+              <summary>
+                {item.question}
+                <Plus size={18} aria-hidden="true" />
+              </summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </section>
         <Link href="/actividad/qa-tienda/" className={buttonVariants()}>
           Conocer la primera práctica <ArrowRight size={17} />
         </Link>

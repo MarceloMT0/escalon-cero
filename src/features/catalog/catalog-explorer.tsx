@@ -1,101 +1,61 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
-import { Search, LockKeyhole, SlidersHorizontal } from "lucide-react";
-import { activity, roleOptions } from "@/content/catalog";
+import { Search, FolderPlus, ArrowUpRight } from "lucide-react";
+import { activities } from "@/content/catalog";
 import { ActivityCard } from "@/components/activity-card";
-import { AreaGrid } from "@/components/area-grid";
+import { emptyFilters, filterActivities } from "./filter";
 
 export function CatalogExplorer() {
   const [query, setQuery] = useState("");
-  const [role, setRole] = useState<string>("Todos los roles");
-  const normalized = query
-    .trim()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
-  const matches =
-    (role === "Todos los roles" || role === activity.role) &&
-    `${activity.title} ${activity.role} ${activity.area} ${activity.skills.join(" ")}`
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase()
-      .includes(normalized);
+  const matches = filterActivities(activities, { ...emptyFilters, role: "qa", query });
   return (
     <>
       <div className="catalog-controls">
         <label className="search-field">
-          <Search size={20} />
+          <Search size={20} aria-hidden="true" />
           <input
+            type="search"
             aria-label="Buscar actividades"
-            placeholder="¿Qué te gustaría practicar?"
+            placeholder="Buscar dentro de QA"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
         </label>
-        <label className="select-label">
-          <SlidersHorizontal size={17} />
-          <span className="sr-only">Filtrar por rol</span>
-          <select
-            aria-label="Filtrar por rol"
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-          >
-            {roleOptions.map((value) => (
-              <option key={value}>{value}</option>
-            ))}
-          </select>
-        </label>
+        <Link href="/buscar/?role=qa" className="catalog-global-link">
+          Abrir catálogo con filtros <ArrowUpRight size={18} aria-hidden="true" />
+        </Link>
       </div>
       <div className="section-heading catalog-count">
+        <h2>Actividades de QA</h2>
         <span role="status">
-          {matches ? "1 actividad disponible" : "Sin actividades disponibles con estos filtros"}
+          {matches.length}{" "}
+          {matches.length === 1 ? "actividad disponible" : "actividades disponibles"}
         </span>
-        <span className="muted">Ingeniería de software · Nivel inicial</span>
       </div>
-      <div className="catalog-grid">
-        {matches ? (
-          <ActivityCard compact />
+      <div className="qa-activity-grid">
+        {matches.length ? (
+          matches.map((item) => <ActivityCard compact activity={item} key={item.id} />)
         ) : (
           <div className="empty-state">
-            <Search size={30} />
-            <h2>Aún no hay una práctica para esta búsqueda</h2>
-            <p>Prueba con «QA» o explora los próximos roles.</p>
-            <button
-              className="text-link"
-              onClick={() => {
-                setQuery("");
-                setRole("Todos los roles");
-              }}
-            >
-              Limpiar filtros
+            <Search size={30} aria-hidden="true" />
+            <h2>Sin actividades con esta búsqueda</h2>
+            <button type="button" className="text-link" onClick={() => setQuery("")}>
+              Limpiar búsqueda
             </button>
+            <Link href="/buscar/" className="text-link">
+              Buscar en todas las áreas
+            </Link>
           </div>
         )}
-        {["Frontend", "Backend"]
-          .filter((value) => role === "Todos los roles" || role === value)
-          .map((value) => (
-            <article className="coming-card" key={value}>
-              <div className="coming-art">
-                <span>{value === "Frontend" ? "</>" : "{ }"}</span>
-                <LockKeyhole size={22} />
-              </div>
-              <span className="coming-badge">Próximamente</span>
-              <h2>{value}</h2>
-              <p>
-                {value === "Frontend"
-                  ? "Interfaces, accesibilidad y experiencias en la web."
-                  : "APIs, datos y lógica detrás de cada producto."}
-              </p>
-              <span className="muted">Estamos preparando nuevas actividades.</span>
-            </article>
-          ))}
+        {!query.trim() ? (
+          <aside className="catalog-next-activities">
+            <FolderPlus size={32} aria-hidden="true" />
+            <h2>Más actividades de QA</h2>
+            <span className="coming-badge">Próximamente</span>
+          </aside>
+        ) : null}
       </div>
-      <section className="catalog-areas">
-        <div className="section-heading">
-          <h2>Otras formas de empezar</h2>
-        </div>
-        <AreaGrid all />
-      </section>
     </>
   );
 }

@@ -32,11 +32,12 @@ export function SiteHeader() {
         <nav aria-label="Navegación principal">
           {[
             {
-              href: "/explorar/",
+              href: "/",
               label: "Explorar",
               active:
                 pathname === "/" ||
                 pathname.startsWith("/explorar") ||
+                pathname.startsWith("/buscar") ||
                 pathname.startsWith("/actividad"),
             },
             {
@@ -61,7 +62,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="header-actions">
-          <Link href="/explorar/" aria-label="Buscar actividades" className="header-search">
+          <Link href="/buscar/" aria-label="Buscar actividades" className="header-search">
             <Search size={20} />
           </Link>
           <AccountDialog />

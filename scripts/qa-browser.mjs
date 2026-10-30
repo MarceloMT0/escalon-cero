@@ -42,48 +42,192 @@ async function accessibility(label) {
 try {
   await open("/");
   assert.match(await page.title(), /Escalón Cero/);
-  await page.getByRole("heading", { name: "¿En qué área quieres dar tu primer paso?" }).waitFor();
-  await page.getByText("Marketing digital", { exact: true }).waitFor();
+  await page.getByRole("heading", { name: "Tu experiencia empieza haciendo." }).waitFor();
+  await page
+    .getByRole("button", { name: "Marketing digital, próximamente", exact: true })
+    .waitFor();
   assert.equal(
     await page.getByRole("link", { name: "Ver actividad", exact: true }).count(),
     0,
     "home does not recommend an activity before area selection",
   );
-  assert.equal(await page.locator(".home-area-picker .coming-badge").count(), 4);
+  assert.equal(await page.locator('.archive-folder[data-available="false"]').count(), 4);
   await noOverflow(page, "desktop home");
   await screenshot("home-desktop");
   await accessibility("home");
-  const scene = page.locator("figure[data-paused]");
-  await page.getByRole("button", { name: "Pausar animación", exact: true }).click();
-  assert.equal(await scene.getAttribute("data-paused"), "true");
-  assert.ok(
-    await scene.evaluate((element) =>
-      element
-        .getAnimations({ subtree: true })
-        .every((animation) => animation.playState === "paused"),
-    ),
-    "all decorative motion can be paused",
-  );
-  await page.getByRole("button", { name: "Activar animación", exact: true }).click();
-  await page.emulateMedia({ reducedMotion: "reduce" });
+  const archive = page.locator(".practice-archive");
+  const software = page.getByRole("button", { name: "Ingeniería de software", exact: true });
+  const dataFolder = page.getByRole("button", {
+    name: "Datos y analítica, próximamente",
+    exact: true,
+  });
+  await dataFolder.focus();
+  await page.keyboard.press("Enter");
+  assert.equal(await dataFolder.getAttribute("aria-expanded"), "true");
+  assert.equal(await software.getAttribute("aria-expanded"), "false");
   assert.equal(
-    await scene.evaluate((element) => element.getAnimations({ subtree: true }).length),
+    await page.locator("#folder-panel-datos a").count(),
     0,
-    "reduced-motion preference stops decorative animations",
+    "upcoming areas cannot start a practice",
   );
+  await page.locator("#folder-panel-datos").getByText("Próximamente", { exact: true }).waitFor();
+  await software.focus();
+  await page.keyboard.press("Enter");
+  await page.getByRole("link", { name: "Explorar Ingeniería de software" }).waitFor();
+  await page.getByRole("button", { name: "Reducir movimiento" }).click();
+  assert.equal(await archive.getAttribute("data-motion"), "off");
+  await dataFolder.click();
+  assert.equal(await archive.evaluate((el) => el.getAnimations({ subtree: true }).length), 0);
+  await software.click();
+  await page.getByRole("button", { name: "Activar movimiento" }).click();
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await dataFolder.click();
+  assert.equal(await archive.evaluate((el) => el.getAnimations({ subtree: true }).length), 0);
+  await software.click();
   await page.emulateMedia({ reducedMotion: "no-preference" });
-  for (const width of [390, 320]) {
+  for (const width of [1024, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 844 });
     await noOverflow(page, `home ${width}`);
-    assert.equal(await scene.isVisible(), true, "graphic content remains visible on mobile");
+    assert.equal(await archive.isVisible(), true);
   }
   await screenshot("home-mobile");
   await page.setViewportSize({ width: 1440, height: 1080 });
-  await page.getByRole("link", { name: /Ingeniería de software/ }).click();
-  await page.getByRole("textbox", { name: "Buscar actividades" }).fill("sin-coincidencias");
-  await page.getByRole("heading", { name: "Aún no hay una práctica para esta búsqueda" }).waitFor();
+  const globalInput = page.getByRole("searchbox", { name: "Buscar áreas, roles o actividades" });
+  await globalInput.fill("QA");
+  const suggestions = page.getByRole("region", { name: "Sugerencias de búsqueda" });
+  for (const kind of ["Áreas", "Roles", "Actividades"]) {
+    await suggestions.getByRole("heading", { name: kind, exact: true }).waitFor();
+  }
+  await screenshot("global-suggestions-desktop");
+  await accessibility("global suggestions");
+  await globalInput.press("ArrowDown");
+  assert.equal(await page.evaluate(() => document.activeElement?.tagName), "A");
+  await page.keyboard.press("Escape");
+  assert.equal(await suggestions.count(), 0);
+  assert.equal(await globalInput.evaluate((el) => document.activeElement === el), true);
+  await globalInput.fill("Marketing");
+  await suggestions.getByText("Próximamente", { exact: true }).waitFor();
+  assert.equal(await suggestions.getByRole("link", { name: "Marketing digital" }).count(), 0);
+  await globalInput.fill("sin-coincidencias");
+  await suggestions.getByText("Sin coincidencias. Prueba con otra palabra.").waitFor();
+  await globalInput.fill("QA");
+  await page.getByRole("button", { name: "Reducir movimiento" }).click();
+  await globalInput.fill("software");
+  assert.equal(await suggestions.evaluate((el) => el.getAnimations({ subtree: true }).length), 0);
+  await page.getByRole("button", { name: "Activar movimiento" }).click();
+  await globalInput.fill("QA");
+  await globalInput.press("Enter");
+  await page.waitForURL("**/buscar/?q=QA");
+  await page.getByRole("heading", { name: "Tu próxima práctica." }).waitFor();
+  const resultInput = page.getByRole("searchbox", { name: "Buscar en todo el catálogo" });
+  await page.getByRole("link", { name: "Ver actividad", exact: true }).waitFor();
   await page.getByRole("button", { name: "Limpiar filtros" }).click();
-  await page.getByLabel("Filtrar por rol").selectOption("QA / Testing");
+  await page.locator(".catalog-filter-reset:disabled").waitFor();
+  await screenshot("global-search-desktop");
+  await accessibility("global search");
+  await resultInput.fill("FUNCIONALES");
+  await page.getByRole("combobox", { name: "Área", exact: true }).selectOption("software");
+  await page.getByRole("combobox", { name: "Rol", exact: true }).selectOption("qa");
+  await page
+    .getByRole("combobox", { name: "Tema", exact: true })
+    .selectOption("Pruebas funcionales");
+  await page.getByRole("combobox", { name: "Nivel", exact: true }).selectOption("Inicial");
+  await page.getByRole("combobox", { name: "Duración", exact: true }).selectOption("medium");
+  await page.getByRole("link", { name: "Ver actividad", exact: true }).waitFor();
+  await page.reload({ waitUntil: "networkidle" });
+  assert.equal(await page.getByRole("combobox", { name: "Rol", exact: true }).inputValue(), "qa");
+  assert.equal(await resultInput.inputValue(), "FUNCIONALES");
+  await page.getByRole("link", { name: "Ver actividad", exact: true }).click();
+  await page.waitForURL("**/actividad/qa-tienda/");
+  await page.goBack({ waitUntil: "networkidle" });
+  assert.equal(
+    await page.getByRole("combobox", { name: "Duración", exact: true }).inputValue(),
+    "medium",
+  );
+  await page.getByRole("combobox", { name: "Duración", exact: true }).selectOption("short");
+  await page.getByRole("heading", { name: "Sin actividades con estos filtros" }).waitFor();
+  await accessibility("global empty state");
+  await page.getByRole("button", { name: "Quitar filtro: Menos de 1 hora", exact: true }).click();
+  await page.getByRole("link", { name: "Ver actividad", exact: true }).waitFor();
+  await page.getByRole("button", { name: "Limpiar filtros" }).click();
+  await page.locator(".catalog-filter-reset:disabled").waitFor();
+  for (const label of ["Área", "Rol", "Tema", "Nivel", "Duración"]) {
+    assert.equal(await page.getByRole("combobox", { name: label, exact: true }).inputValue(), "");
+  }
+  await page.getByRole("combobox", { name: "Rol", exact: true }).selectOption("qa");
+  await page.getByRole("combobox", { name: "Área", exact: true }).selectOption("marketing");
+  await page.getByRole("heading", { name: "Sin actividades con estos filtros" }).waitFor();
+  assert.equal(await page.getByRole("combobox", { name: "Rol", exact: true }).inputValue(), "");
+  assert.equal(await page.getByRole("combobox", { name: "Rol", exact: true }).isDisabled(), true);
+  await page.getByRole("heading", { name: "Próximamente", exact: true }).waitFor();
+  await page.getByRole("button", { name: "Limpiar filtros" }).click();
+  await page.locator(".catalog-filter-reset:disabled").waitFor();
+  await page.getByRole("button", { name: "Reducir movimiento" }).click();
+  await page.getByRole("combobox", { name: "Duración", exact: true }).selectOption("short");
+  assert.equal(
+    await page
+      .locator(".search-workspace")
+      .evaluate((el) => el.getAnimations({ subtree: true }).length),
+    0,
+  );
+  await page.getByRole("button", { name: "Activar movimiento" }).click();
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.getByRole("button", { name: "Limpiar filtros" }).click();
+  await page.locator(".catalog-filter-reset:disabled").waitFor();
+  assert.equal(
+    await page
+      .locator(".search-workspace")
+      .evaluate((el) => el.getAnimations({ subtree: true }).length),
+    0,
+  );
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.setViewportSize({ width: 320, height: 844 });
+  await noOverflow(page, "global search 320");
+  await screenshot("global-search-mobile");
+  await page.getByRole("button", { name: "Filtros", exact: true }).click();
+  await page.getByRole("combobox", { name: "Tema", exact: true }).selectOption("Casos de prueba");
+  await noOverflow(page, "global filters open 320");
+  await screenshot("global-filters-mobile");
+  await accessibility("global mobile filters");
+  await page.getByRole("button", { name: "Filtros (1)", exact: true }).click();
+  await page.getByRole("button", { name: "Quitar filtro: Casos de prueba" }).click();
+  await open("/");
+  await globalInput.fill("QA");
+  await noOverflow(page, "home suggestions 320");
+  await screenshot("global-suggestions-mobile");
+  await suggestions.getByRole("link", { name: "QA / Testing", exact: true }).click();
+  await page.waitForURL("**/explorar/qa/");
+  await open("/");
+  await page.setViewportSize({ width: 1440, height: 1080 });
+  await page.getByRole("link", { name: /Ingeniería de software/ }).click();
+  await page.getByRole("heading", { name: "Ingeniería de software", exact: true }).waitFor();
+  assert.equal(
+    await page.getByRole("link", { name: "Ver actividad", exact: true }).count(),
+    0,
+    "area contains roles, not activities",
+  );
+  await accessibility("software roles");
+  await screenshot("software-roles");
+  await page.getByRole("link", { name: "Ver actividades de QA" }).click();
+  await page.waitForURL("**/explorar/qa/");
+  await page.getByRole("heading", { name: "QA / Testing", exact: true }).waitFor();
+  assert.equal(await page.getByRole("link", { name: "Ver actividad", exact: true }).count(), 1);
+  await page.getByRole("heading", { name: "Más actividades de QA", exact: true }).waitFor();
+  await accessibility("QA catalog");
+  await screenshot("qa-catalog");
+  await page.getByRole("searchbox", { name: "Buscar actividades" }).fill("sin-coincidencias");
+  await page.getByRole("heading", { name: "Sin actividades con esta búsqueda" }).waitFor();
+  await page.getByRole("button", { name: "Limpiar búsqueda" }).click();
+  await page.getByRole("link", { name: "Abrir catálogo con filtros" }).click();
+  await page.waitForURL("**/buscar/?role=qa");
+  assert.equal(await page.getByRole("combobox", { name: "Rol", exact: true }).inputValue(), "qa");
+  await page.getByRole("button", { name: "Quitar filtro: QA / Testing" }).click();
+  await page
+    .getByRole("button", { name: "Quitar filtro: QA / Testing" })
+    .waitFor({ state: "hidden" });
+  assert.equal(await page.getByRole("combobox", { name: "Rol", exact: true }).inputValue(), "");
+  await open("/explorar/qa/");
+
   await page.getByRole("link", { name: "Ver actividad", exact: true }).click();
   await page.getByRole("button", { name: "Empezar mi práctica" }).click();
   await page.getByRole("heading", { name: /Una compra sin sorpresas/ }).waitFor();
@@ -216,6 +360,8 @@ try {
   for (const path of [
     "/",
     "/explorar/",
+    "/explorar/qa/",
+    "/buscar/",
     "/actividad/qa-tienda/",
     "/practica/",
     "/simulador/",
@@ -226,6 +372,39 @@ try {
     await open(path);
     await noOverflow(page, `mobile ${path}`);
   }
+  const footer = page.getByRole("contentinfo");
+  await footer.getByRole("link", { name: "Preguntas frecuentes", exact: true }).click();
+  await page.waitForURL("**/acerca/#preguntas-frecuentes");
+  const question = page
+    .locator(".about-faq summary")
+    .filter({ hasText: "¿Puedo empezar sin crear una cuenta?" });
+  await question.focus();
+  await page.keyboard.press("Enter");
+  await page
+    .getByText("Sí. Puedes realizar la práctica y guardar el borrador", { exact: false })
+    .waitFor();
+  await accessibility("about FAQ and footer");
+  await footer.getByRole("link", { name: "Tu trabajo y tus datos", exact: true }).click();
+  await page.waitForURL("**/acerca/#tus-datos");
+  await footer.getByRole("link", { name: "Todas las actividades", exact: true }).click();
+  await page.waitForURL("**/buscar/");
+  await footer.getByRole("link", { name: "Áreas de práctica", exact: true }).click();
+  await page.waitForURL(origin + "/");
+  await noOverflow(page, "home footer mobile");
+  await footer.screenshot({
+    path: fileURLToPath(new URL("footer-mobile.png", output)),
+    animations: "disabled",
+  });
+  await page.setViewportSize({ width: 1440, height: 1080 });
+  await footer.screenshot({
+    path: fileURLToPath(new URL("footer-desktop.png", output)),
+    animations: "disabled",
+  });
+  await footer.getByRole("link", { name: "Volver arriba", exact: true }).click();
+  await page.waitForFunction(
+    () => document.getElementById("contenido").getBoundingClientRect().top >= -2,
+  );
+  await page.setViewportSize({ width: 320, height: 844 });
   await page.getByRole("button", { name: "Mi cuenta", exact: true }).click();
   await page.getByRole("dialog").waitFor();
   await noOverflow(page, "account dialog mobile");
@@ -239,7 +418,11 @@ try {
   results.push({
     functional: "PASS",
     flows: [
-      "catalog search",
+      "global grouped suggestions, keyboard and mobile search",
+      "global filters, URLs, reload and back navigation",
+      "upcoming content and empty results",
+      "search motion preferences",
+      "role-scoped search",
       "practice start",
       "3 cases",
       "2 reports",
@@ -250,6 +433,7 @@ try {
       "cross-browser portable share without private evidence",
       "mobile overflow",
       "account dialog",
+      "footer navigation, anchors, keyboard FAQ and back to top",
     ],
     browserErrors: errors,
   });

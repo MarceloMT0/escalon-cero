@@ -6,7 +6,9 @@ MVP construido durante DSC HACK 2026. La primera actividad es una simulación de
 
 **Demo:** https://escalon-cero-ruddy.vercel.app · **Código:** https://github.com/MarceloMT0/escalon-cero
 
-![Referencia visual aprobada](docs/assets/referencia-aprobada.png)
+![Inicio: archivo de prácticas aprobado](docs/assets/referencia-archivo-aprobada.png)
+
+La portada implementa la opción G (archivo de prácticas), con carpetas interactivas. La [referencia visual anterior](docs/assets/referencia-aprobada.png) se conserva como antecedente.
 
 ## Ejecutar
 
@@ -21,7 +23,7 @@ Abrir la URL local que imprime Next.js. Sin variables de entorno, todo el recorr
 
 ## Recorrido funcional
 
-1. Elegir un área de interés desde el inicio; después explorar y filtrar el catálogo disponible.
+1. Buscar áreas, roles o actividades desde el inicio, o explorar las carpetas de áreas y sus roles. La pantalla `/buscar/` permite combinar filtros y conserva los criterios en su URL. Ingeniería de software → QA / Testing reúne hoy una actividad disponible; el catálogo está diseñado para incorporar más.
 2. Abrir el encargo de QA y empezar la práctica.
 3. Leer cinco requisitos y probar una tienda con errores educativos reproducibles.
 4. Guardar al menos tres casos ejecutados, dos reportes y una reflexión.

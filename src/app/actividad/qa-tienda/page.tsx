@@ -19,9 +19,9 @@ export const metadata: Metadata = { title: "Práctica de QA: una tienda online" 
 export default function ActivityPage() {
   return (
     <div className="page-container internal-page">
-      <Link href="/explorar/" className="back-link">
+      <Link href="/explorar/qa/" className="back-link">
         <ArrowLeft size={16} />
-        Todas las actividades
+        Actividades de QA / Testing
       </Link>
       <div className="brief-heading">
         <span className="eyebrow lime-badge">SIMULACIÓN LABORAL · QA / TESTING</span>

@@ -8,8 +8,10 @@ Estudiantes de últimos ciclos y egresados que necesitan practicar tareas de un 
 
 - Una actividad funcional en Ingeniería de software / QA.
 - Inicio orientado a elegir un área de interés, sin recomendar QA antes de conocerla. Todas las áreas son visibles; las que no tienen contenido indican «Próximamente».
-- Escena gráfica de progreso con movimiento decorativo, control de pausa y respeto de la preferencia de movimiento reducido. Visible también en móvil, después de la elección de área.
-- Catálogo con búsqueda insensible a tildes y filtro por rol. Otras áreas y roles sin actividades, etiquetadas como «Próximamente».
+- Inicio con carpetas interactivas (opción G aprobada): apertura con clic, toque o teclado, una carpeta expandida a la vez y movimiento reducido por preferencia del sistema o control manual. Las áreas pendientes muestran descripción y «Próximamente», sin enlace de inicio. En móvil se apilan.
+- Navegación Área → Rol → Actividades. Ingeniería de software muestra QA / Testing y los roles pendientes Frontend y Backend. QA tiene un catálogo propio con búsqueda insensible a tildes y una colección preparada para varias actividades; hoy solo una está disponible. Otras áreas, roles y futuras incorporaciones se identifican como «Próximamente».
+- Búsqueda global desde el inicio y el encabezado. Sugerencias agrupadas en áreas, roles y actividades; pantalla `/buscar/` con filtros combinables de área, rol, tema, nivel y duración. Criterios en la URL, etiquetas removibles, recuento real, estado vacío y limpieza completa. En móvil los filtros se despliegan; QA conserva búsqueda local y acceso al catálogo global. Temas y niveles corresponden al contenido publicado.
+- Pie de página compartido con navegación, descripción del proyecto, preguntas frecuentes, información sobre datos, enlace al código y retorno al inicio de la página.
 - Encargo de una empresa ficticia, cinco requisitos y entregables claros.
 - Tienda de práctica con cantidades, envío, cupón, correo y confirmación de pedido ficticio.
 - Casos de prueba, errores, reflexión, evidencias y conservación del borrador.

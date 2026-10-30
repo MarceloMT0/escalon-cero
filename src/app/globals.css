@@ -30,7 +30,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-jakarta), Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
@@ -185,7 +185,7 @@ select:focus-visible {
 }
 .quiet-eyebrow {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.17em;
   color: var(--muted);
@@ -194,7 +194,7 @@ select:focus-visible {
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.02em;
   font-weight: 750;
 }
@@ -220,7 +220,7 @@ select:focus-visible {
 }
 .back-link {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 25px;
   min-height: 32px;
 }
@@ -236,14 +236,14 @@ select:focus-visible {
   gap: 10px;
   align-items: center;
   color: var(--blue);
-  font-size: 12px;
+  font-size: 14px;
 }
 .section-kicker {
   display: flex;
   align-items: center;
   gap: 9px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.08em;
   margin-bottom: 16px;
@@ -269,7 +269,7 @@ select:focus-visible {
   min-height: 46px;
   border-radius: 12px;
   border: 1px solid transparent;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 650;
   line-height: 1.4;
   transition:
@@ -310,7 +310,7 @@ select:focus-visible {
 .button-small {
   min-height: 38px;
   padding: 9px 13px;
-  font-size: 11px;
+  font-size: 13px;
   border-radius: 9px;
 }
 .button-icon {
@@ -328,7 +328,7 @@ select:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 7px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 650;
   min-width: 0;
 }
@@ -357,7 +357,7 @@ select {
 }
 .field-help {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 400;
   line-height: 1.7;
 }
@@ -365,7 +365,7 @@ select {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.8;
   color: var(--muted);
 }
@@ -389,7 +389,7 @@ input[type="checkbox"] {
 .notice p,
 .notice > div {
   color: #475c89;
-  font-size: 12px;
+  font-size: 14px;
 }
 .notice p + p {
   margin-top: 8px;
@@ -403,7 +403,7 @@ input[type="checkbox"] {
   border-radius: 10px;
   background: #f0f4ff;
   color: #304c8c;
-  font-size: 12px;
+  font-size: 14px;
 }
 .feedback.error {
   color: #a52d41;
@@ -473,7 +473,7 @@ input[type="checkbox"] {
   padding: 10px 19px;
   border-radius: 28px;
   color: #344264;
-  font-size: 12px;
+  font-size: 14px;
   min-height: 40px;
   display: flex;
   align-items: center;
@@ -507,25 +507,182 @@ input[type="checkbox"] {
 }
 .site-footer {
   width: min(1240px, calc(100% - 80px));
-  margin: 48px auto 0;
-  padding: 25px 0 30px;
-  border-top: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
+  margin: 64px auto 0;
+  padding: 42px 0 22px;
+  border-top: 2px solid var(--blue);
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
 }
-.site-footer > div {
-  display: flex;
-  align-items: center;
-  gap: 22px;
+.footer-main {
+  display: grid;
+  grid-template-columns: minmax(240px, 1.5fr) repeat(3, minmax(0, 1fr));
+  gap: 36px;
+  padding-bottom: 36px;
 }
-.site-footer a {
+.footer-identity {
+  max-width: 280px;
+}
+.footer-brand {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.07em;
+  color: var(--ink);
+}
+.footer-identity > p {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.footer-project-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-size: 11px;
+  letter-spacing: 0.09em;
+}
+.footer-project-label > span {
+  width: 10px;
+  height: 15px;
+  background: var(--lime);
+}
+.footer-column h2 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 8px 0 12px;
+  color: var(--ink);
+}
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-column a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 6px 0;
+  font-size: 13px;
+  line-height: 1.5;
+  text-underline-offset: 5px;
+}
+.footer-column a:hover,
+.footer-utilities a:hover {
+  color: var(--blue);
+  text-decoration: underline;
+}
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.footer-bottom > p {
+  font-size: 12px;
+}
+.footer-utilities {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+.footer-utilities a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-size: 12px;
+  text-underline-offset: 5px;
+}
+.footer-utilities svg {
+  transition: transform 180ms ease;
+}
+.footer-back-top:hover svg {
+  transform: translateY(-3px);
+}
+.footer-utilities a[target]:hover svg {
+  transform: translate(2px, -2px);
+}
+.about-faq {
+  margin: 32px 0;
+}
+.about-faq details {
+  border-bottom: 1px solid var(--line);
+}
+.about-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  list-style: none;
+  min-height: 60px;
+  padding: 14px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.about-faq summary::-webkit-details-marker {
+  display: none;
+}
+.about-faq summary:hover {
+  color: var(--blue);
+}
+.about-faq summary svg {
+  transition: transform 180ms ease;
+}
+.about-faq details[open] summary svg {
+  transform: rotate(45deg);
+}
+.about-faq details > p {
+  margin: 0;
+  padding: 0 28px 20px 0;
+  font-size: 15px;
+}
+.about-page h2[id] {
+  scroll-margin-top: 28px;
+}
+body:has(.practice-archive[data-motion="off"]) .footer-utilities svg {
+  transition: none;
+  transform: none;
+}
+@media (max-width: 1000px) {
+  .footer-main {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .footer-identity {
+    grid-column: 1 / -1;
+    max-width: 380px;
+  }
+}
+@media (max-width: 600px) {
+  .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 20px;
+    padding-bottom: 26px;
+  }
+  .footer-column:last-child {
+    grid-column: 1 / -1;
+  }
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .footer-bottom > p {
+    max-width: 290px;
+    line-height: 1.7;
+  }
+  .footer-utilities {
+    gap: 8px 20px;
+  }
 }
 .dialog-overlay {
   position: fixed;
@@ -577,7 +734,7 @@ input[type="checkbox"] {
 }
 .home-heading .quiet-eyebrow {
   margin-bottom: 13px;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
 }
 .home-heading h1 {
@@ -590,6 +747,7 @@ input[type="checkbox"] {
   color: #53627f;
 }
 .heading-mark {
+  display: inline-block;
   position: relative;
 }
 .heading-mark::after {
@@ -634,7 +792,7 @@ input[type="checkbox"] {
   margin: 17px 0 12px;
 }
 .discovery-card > p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.75;
 }
 .home-area-picker {
@@ -656,19 +814,19 @@ input[type="checkbox"] {
   height: 38px;
 }
 .home-area-picker .area-card strong {
-  font-size: 12px;
+  font-size: 14px;
 }
 .home-area-picker .area-description {
   display: block;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
 }
 .home-area-picker .coming-badge {
   margin: 0 0 0 auto;
-  font-size: 11px;
+  font-size: 13px;
 }
 .discovery-card .discovery-note {
-  font-size: 11px;
+  font-size: 13px;
   border-top: 1px solid var(--line);
   padding-top: 15px;
 }
@@ -695,7 +853,7 @@ input[type="checkbox"] {
 }
 .art-caption {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
   margin-top: -5px;
   text-align: center;
   position: relative;
@@ -713,14 +871,14 @@ input[type="checkbox"] {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   margin: 12px 0 10px;
   flex-wrap: wrap;
 }
 .role-label strong {
   color: var(--ink);
-  font-size: 11px;
+  font-size: 13px;
 }
 .role-symbol {
   color: #596da4;
@@ -740,7 +898,7 @@ input[type="checkbox"] {
   margin-bottom: 13px;
 }
 .activity-card > p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.75;
 }
 .activity-meta {
@@ -748,7 +906,7 @@ input[type="checkbox"] {
   flex-wrap: wrap;
   align-items: center;
   gap: 12px 21px;
-  font-size: 11px;
+  font-size: 13px;
   color: #3e4c6c;
 }
 .activity-meta span {
@@ -776,7 +934,7 @@ input[type="checkbox"] {
 }
 .small-label {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   margin-bottom: 8px;
   font-weight: 600;
 }
@@ -791,7 +949,7 @@ input[type="checkbox"] {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 11px;
+  font-size: 13px;
   color: #52617f;
   line-height: 1.5;
 }
@@ -836,7 +994,7 @@ input[type="checkbox"] {
   letter-spacing: -0.025em;
 }
 .step-item p {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   line-height: 1.65;
   max-width: 230px;
@@ -889,12 +1047,12 @@ input[type="checkbox"] {
 }
 .area-card strong {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: -0.025em;
 }
 .area-description {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   margin-top: 3px;
 }
@@ -908,7 +1066,7 @@ input[type="checkbox"] {
   color: var(--muted);
   border-radius: 20px;
   padding: 4px 9px;
-  font-size: 11px;
+  font-size: 13px;
   white-space: nowrap;
 }
 .unavailable {
@@ -926,7 +1084,7 @@ input[type="checkbox"] {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   margin-top: 28px;
 }
@@ -976,10 +1134,10 @@ input[type="checkbox"] {
   border: 0;
   padding: 13px 2px;
   width: 170px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .catalog-count {
-  font-size: 11px;
+  font-size: 13px;
 }
 .catalog-grid {
   display: grid;
@@ -1030,11 +1188,11 @@ input[type="checkbox"] {
   margin: 14px 0 12px;
 }
 .coming-card p {
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 24px;
 }
 .coming-card > .muted {
-  font-size: 11px;
+  font-size: 13px;
 }
 .catalog-areas {
   margin-top: 45px;
@@ -1067,7 +1225,7 @@ input[type="checkbox"] {
   font-size: 16px;
 }
 .brief-heading .activity-meta {
-  font-size: 12px;
+  font-size: 14px;
 }
 .brief-layout {
   display: grid;
@@ -1108,7 +1266,7 @@ input[type="checkbox"] {
 .requirement-id {
   background: #eff2f8;
   color: #5e6d8a;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   padding: 4px 7px;
   border-radius: 5px;
@@ -1121,7 +1279,7 @@ input[type="checkbox"] {
   letter-spacing: -0.02em;
 }
 .requirements-list p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
 }
 .sticky-card {
@@ -1151,10 +1309,10 @@ input[type="checkbox"] {
   gap: 14px;
 }
 .sticky-card .check-list li {
-  font-size: 11px;
+  font-size: 13px;
 }
 .sticky-card > p {
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.8;
   margin: 20px 0;
 }
@@ -1165,7 +1323,7 @@ input[type="checkbox"] {
 .aside-footnote {
   display: block;
   text-align: center;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   margin-top: 16px;
 }
@@ -1189,7 +1347,7 @@ input[type="checkbox"] {
 }
 .workspace-heading p {
   margin-top: 12px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .workspace-heading > .button {
   flex-shrink: 0;
@@ -1224,13 +1382,13 @@ input[type="checkbox"] {
 }
 .workspace-tab strong {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   color: #53617c;
   font-weight: 650;
 }
 .workspace-tab small {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   margin-top: 3px;
 }
@@ -1254,7 +1412,7 @@ input[type="checkbox"] {
   border-radius: 50%;
   background: #e4e9f7;
   color: #5d6d91;
-  font-size: 11px;
+  font-size: 13px;
   margin-left: auto;
 }
 .workspace-progress {
@@ -1263,12 +1421,12 @@ input[type="checkbox"] {
   border-top: 1px solid var(--line);
 }
 .workspace-progress > span {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   display: block;
 }
 .workspace-progress strong {
-  font-size: 12px;
+  font-size: 14px;
   display: block;
   margin-top: 4px;
 }
@@ -1290,7 +1448,7 @@ progress::-webkit-progress-value {
   border-radius: 5px;
 }
 .workspace-progress p {
-  font-size: 11px;
+  font-size: 13px;
 }
 .storage-note {
   display: flex;
@@ -1298,7 +1456,7 @@ progress::-webkit-progress-value {
   gap: 8px;
   padding: 14px 15px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
 }
 .workspace-sidebar > .stack {
   margin-top: 10px;
@@ -1335,7 +1493,7 @@ progress::-webkit-progress-value {
 }
 .panel-heading p {
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .panel-heading .quiet-eyebrow {
   margin-bottom: 8px;
@@ -1390,7 +1548,7 @@ progress::-webkit-progress-value {
   background: var(--blue-soft);
   border-radius: 10px;
   color: var(--blue);
-  font-size: 11px;
+  font-size: 13px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1402,14 +1560,14 @@ progress::-webkit-progress-value {
 }
 .entry-card summary strong {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.55;
   overflow-wrap: anywhere;
 }
 .entry-card summary small {
   display: block;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
   margin-top: 3px;
 }
 .entry-card summary > svg {
@@ -1436,12 +1594,12 @@ progress::-webkit-progress-value {
   margin: 18px 0;
   border: 1px dashed #d6deed;
   border-radius: 12px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 650;
 }
 .upload-field input {
   max-width: 100%;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
 }
 .upload-field input::file-selector-button {
@@ -1472,13 +1630,13 @@ progress::-webkit-progress-value {
 }
 .evidence-list li > span {
   flex: 1;
-  font-size: 11px;
+  font-size: 13px;
   overflow-wrap: anywhere;
 }
 .evidence-list small {
   display: block;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
 }
 .rubric-list {
   list-style: none;
@@ -1516,10 +1674,10 @@ progress::-webkit-progress-value {
   border: 1px solid #a0abc0;
 }
 .rubric-list strong {
-  font-size: 12px;
+  font-size: 14px;
 }
 .rubric-list p {
-  font-size: 11px;
+  font-size: 13px;
   margin-top: 4px;
 }
 .rubric-card > .button {
@@ -1542,7 +1700,7 @@ progress::-webkit-progress-value {
   font-size: 14px;
 }
 .submission-success p {
-  font-size: 11px;
+  font-size: 13px;
   margin: 7px 0 16px;
 }
 .empty-practice {
@@ -1585,7 +1743,7 @@ progress::-webkit-progress-value {
   gap: 8px;
   align-items: center;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
 }
 .shop-window {
   background: white;
@@ -1613,7 +1771,7 @@ progress::-webkit-progress-value {
   margin-left: 2px;
 }
 .shop-header > span {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.08em;
   color: var(--muted);
 }
@@ -1626,7 +1784,7 @@ progress::-webkit-progress-value {
   align-items: center;
   gap: 10px;
   padding: 10px;
-  font-size: 11px;
+  font-size: 13px;
 }
 .shop-layout {
   display: grid;
@@ -1663,7 +1821,7 @@ progress::-webkit-progress-value {
 .product-stage-label {
   position: absolute;
   top: 23px;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.2em;
   color: var(--muted);
 }
@@ -1689,13 +1847,13 @@ progress::-webkit-progress-value {
   align-items: center;
   justify-content: center;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
 }
 .product-thumbnails span:first-child {
   border-color: #8da191;
 }
 .shop-product > .quiet-eyebrow {
-  font-size: 11px;
+  font-size: 13px;
   margin-bottom: 10px;
 }
 .shop-product > h1 {
@@ -1703,7 +1861,7 @@ progress::-webkit-progress-value {
 }
 .shop-product > p {
   margin-top: 12px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .product-price {
   display: block;
@@ -1712,7 +1870,7 @@ progress::-webkit-progress-value {
   margin-top: 15px;
 }
 .stock-note {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   display: flex;
   align-items: center;
@@ -1751,7 +1909,7 @@ progress::-webkit-progress-value {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  font-size: 12px;
+  font-size: 14px;
   padding: 8px 0;
 }
 .order-lines strong {
@@ -1784,7 +1942,7 @@ progress::-webkit-progress-value {
   margin-top: 15px;
 }
 .shop-disclaimer {
-  font-size: 11px;
+  font-size: 13px;
   display: flex;
   justify-content: center;
   gap: 7px;
@@ -1795,7 +1953,7 @@ progress::-webkit-progress-value {
 .simulator-footnote {
   text-align: center;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
   margin: 20px auto;
   max-width: 700px;
 }
@@ -1817,7 +1975,7 @@ progress::-webkit-progress-value {
   min-width: 300px;
 }
 .shop-success p {
-  font-size: 12px;
+  font-size: 14px;
 }
 .shop-success .button-row {
   margin-top: 10px;
@@ -1849,10 +2007,10 @@ progress::-webkit-progress-value {
   padding: 15px;
 }
 .share-disclosure strong {
-  font-size: 11px;
+  font-size: 13px;
 }
 .share-disclosure p {
-  font-size: 11px;
+  font-size: 13px;
   margin-top: 6px;
 }
 .portfolio-placeholder {
@@ -1875,7 +2033,7 @@ progress::-webkit-progress-value {
   font-weight: 400;
 }
 .portfolio-placeholder p {
-  font-size: 12px;
+  font-size: 14px;
   max-width: 370px;
 }
 .portfolio-preview-lines {
@@ -1930,7 +2088,7 @@ progress::-webkit-progress-value {
   min-width: 180px;
 }
 .portfolio-cover .quiet-eyebrow {
-  font-size: 11px;
+  font-size: 13px;
   margin-bottom: 8px;
   color: var(--muted);
 }
@@ -1940,7 +2098,7 @@ progress::-webkit-progress-value {
 }
 .portfolio-cover p {
   margin-top: 10px;
-  font-size: 11px;
+  font-size: 13px;
   overflow-wrap: anywhere;
 }
 .portfolio-role {
@@ -1950,7 +2108,7 @@ progress::-webkit-progress-value {
   border-radius: 20px;
   padding: 6px 10px;
   background: white;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
 }
 .portfolio-project {
@@ -1964,7 +2122,7 @@ progress::-webkit-progress-value {
   align-items: center;
 }
 .portfolio-project-heading > .muted {
-  font-size: 11px;
+  font-size: 13px;
 }
 .portfolio-project > h2 {
   font-family: var(--font-serif), Georgia, serif;
@@ -1974,7 +2132,7 @@ progress::-webkit-progress-value {
   margin-bottom: 15px;
 }
 .portfolio-project > p {
-  font-size: 11px;
+  font-size: 13px;
 }
 .portfolio-skills {
   display: flex;
@@ -1987,7 +2145,7 @@ progress::-webkit-progress-value {
   background: #f2f4f9;
   color: var(--muted);
   padding: 4px 7px;
-  font-size: 11px;
+  font-size: 13px;
 }
 .portfolio-facts {
   display: flex;
@@ -1999,7 +2157,7 @@ progress::-webkit-progress-value {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
 }
 .portfolio-facts svg {
@@ -2012,7 +2170,7 @@ progress::-webkit-progress-value {
   padding: 12px;
 }
 .portfolio-project .notice p {
-  font-size: 11px;
+  font-size: 13px;
 }
 .portfolio-section {
   margin-top: 28px;
@@ -2031,7 +2189,7 @@ progress::-webkit-progress-value {
   display: flex;
   gap: 10px;
   align-items: center;
-  font-size: 11px;
+  font-size: 13px;
   list-style: none;
 }
 .portfolio-cases summary::-webkit-details-marker {
@@ -2039,7 +2197,7 @@ progress::-webkit-progress-value {
 }
 .portfolio-cases summary > span:first-child {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
 }
 .portfolio-cases summary strong {
   font-weight: 600;
@@ -2051,7 +2209,7 @@ progress::-webkit-progress-value {
   border-radius: 6px;
   padding: 3px 6px;
   margin-left: auto;
-  font-size: 11px;
+  font-size: 13px;
   white-space: nowrap;
 }
 .result-badge.fail {
@@ -2063,7 +2221,7 @@ progress::-webkit-progress-value {
   grid-template-columns: 115px 1fr;
   gap: 10px 15px;
   margin-top: 16px;
-  font-size: 11px;
+  font-size: 13px;
 }
 .portfolio-document dt {
   color: var(--muted);
@@ -2082,7 +2240,7 @@ progress::-webkit-progress-value {
 }
 .report-id {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
 }
 .portfolio-report h4 {
   font-size: 13px;
@@ -2090,7 +2248,7 @@ progress::-webkit-progress-value {
   overflow-wrap: anywhere;
 }
 .reflection-section .quiet-eyebrow {
-  font-size: 11px;
+  font-size: 13px;
   margin-bottom: 8px;
 }
 .reflection-section h3 {
@@ -2099,7 +2257,7 @@ progress::-webkit-progress-value {
   font-weight: 400;
 }
 .reflection-section p {
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.9;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
@@ -2108,7 +2266,7 @@ progress::-webkit-progress-value {
   padding: 15px;
   border-top: 1px solid var(--line);
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
   text-align: center;
 }
 .shared-portfolio-page {
@@ -2120,7 +2278,7 @@ progress::-webkit-progress-value {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   margin-bottom: 20px;
 }
@@ -2135,10 +2293,10 @@ progress::-webkit-progress-value {
 }
 .shared-portfolio-page .portfolio-document p,
 .shared-portfolio-page .portfolio-document dl {
-  font-size: 12px;
+  font-size: 14px;
 }
 .shared-portfolio-page .portfolio-document summary {
-  font-size: 12px;
+  font-size: 14px;
 }
 .about-page {
   max-width: 950px;
@@ -2163,7 +2321,7 @@ progress::-webkit-progress-value {
 .prose ul {
   padding-left: 20px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
 }
 .prose li {
   margin: 15px 0;
@@ -2201,7 +2359,7 @@ progress::-webkit-progress-value {
   }
   .activity-card .activity-meta,
   .check-list li {
-    font-size: 11px;
+    font-size: 13px;
   }
   .home-heading h1 {
     font-size: 70px;
@@ -2219,7 +2377,7 @@ progress::-webkit-progress-value {
   }
   .site-header nav a {
     padding: 10px 14px;
-    font-size: 11px;
+    font-size: 13px;
   }
   .brand {
     font-size: 19px;
@@ -2267,14 +2425,14 @@ progress::-webkit-progress-value {
     flex-wrap: wrap;
   }
   .area-card strong {
-    font-size: 11px;
+    font-size: 13px;
   }
   .area-icon {
     width: 38px;
     height: 38px;
   }
   .area-card .coming-badge {
-    font-size: 11px;
+    font-size: 13px;
     margin-left: 48px;
     margin-top: -3px;
   }
@@ -2366,7 +2524,7 @@ progress::-webkit-progress-value {
   .site-header nav a {
     min-height: 39px;
     padding: 9px 13px;
-    font-size: 11px;
+    font-size: 13px;
     flex: 1;
   }
   .home-page {
@@ -2379,7 +2537,7 @@ progress::-webkit-progress-value {
     margin: auto;
   }
   .home-heading .quiet-eyebrow {
-    font-size: 11px;
+    font-size: 13px;
     margin-bottom: 14px;
   }
   .home-heading > p {
@@ -2408,7 +2566,7 @@ progress::-webkit-progress-value {
     max-height: 280px;
   }
   .art-caption {
-    font-size: 11px;
+    font-size: 13px;
     margin-top: -12px;
   }
   .featured-card {
@@ -2418,18 +2576,18 @@ progress::-webkit-progress-value {
     font-size: 32px;
   }
   .activity-card > p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .role-label {
-    font-size: 11px;
+    font-size: 13px;
     gap: 8px;
   }
   .activity-card .activity-meta {
-    font-size: 11px;
+    font-size: 13px;
     gap: 14px;
   }
   .check-list li {
-    font-size: 11px;
+    font-size: 13px;
   }
   .activity-card-bottom .button {
     align-self: stretch;
@@ -2452,7 +2610,7 @@ progress::-webkit-progress-value {
   }
   .step-item p {
     max-width: none;
-    font-size: 11px;
+    font-size: 13px;
   }
   .step-icon {
     width: 49px;
@@ -2469,7 +2627,7 @@ progress::-webkit-progress-value {
     font-size: 17px;
   }
   .section-heading a {
-    font-size: 11px;
+    font-size: 13px;
     gap: 5px;
   }
   .area-grid {
@@ -2482,18 +2640,18 @@ progress::-webkit-progress-value {
     padding: 14px 17px;
   }
   .area-card strong {
-    font-size: 12px;
+    font-size: 14px;
   }
   .area-card .coming-badge {
     margin-left: auto;
     margin-top: 0;
-    font-size: 11px;
+    font-size: 13px;
   }
   .area-description {
-    font-size: 11px;
+    font-size: 13px;
   }
   .home-note {
-    font-size: 11px;
+    font-size: 13px;
     text-align: center;
     align-items: flex-start;
     line-height: 1.8;
@@ -2504,13 +2662,8 @@ progress::-webkit-progress-value {
   .site-footer {
     width: calc(100% - 36px);
     margin-top: 35px;
-    font-size: 11px;
+    font-size: 13px;
     padding-bottom: 25px;
-  }
-  .site-footer > div {
-    justify-content: space-between;
-    width: 100%;
-    gap: 10px;
   }
   .internal-page {
     padding-top: 30px;
@@ -2523,7 +2676,7 @@ progress::-webkit-progress-value {
     margin: 17px 0 25px;
   }
   .quiet-eyebrow {
-    font-size: 11px;
+    font-size: 13px;
   }
   .catalog-controls {
     flex-direction: column;
@@ -2537,7 +2690,7 @@ progress::-webkit-progress-value {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
-    font-size: 11px;
+    font-size: 13px;
   }
   .catalog-grid {
     grid-template-columns: 1fr;
@@ -2564,7 +2717,7 @@ progress::-webkit-progress-value {
     font-size: 13px;
   }
   .brief-heading .activity-meta {
-    font-size: 11px;
+    font-size: 13px;
   }
   .brief-layout {
     grid-template-columns: 1fr;
@@ -2576,16 +2729,16 @@ progress::-webkit-progress-value {
     border-radius: 18px;
   }
   .brief-content .surface > p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .requirements-list > div {
     gap: 11px;
   }
   .requirements-list p {
-    font-size: 11px;
+    font-size: 13px;
   }
   .requirement-id {
-    font-size: 11px;
+    font-size: 13px;
     padding: 4px 6px;
   }
   .requirements-list h3 {
@@ -2604,7 +2757,7 @@ progress::-webkit-progress-value {
     display: none;
   }
   .sticky-card > p {
-    font-size: 11px;
+    font-size: 13px;
     margin: 10px 0;
   }
   .sticky-card > .button {
@@ -2615,7 +2768,7 @@ progress::-webkit-progress-value {
     gap: 10px;
   }
   .notice p {
-    font-size: 11px;
+    font-size: 13px;
   }
   .workspace-page {
     padding-top: 24px;
@@ -2650,10 +2803,10 @@ progress::-webkit-progress-value {
     padding: 12px;
   }
   .workspace-tab strong {
-    font-size: 11px;
+    font-size: 13px;
   }
   .workspace-tab small {
-    font-size: 11px;
+    font-size: 13px;
   }
   .workspace-tab > svg {
     width: 17px;
@@ -2668,10 +2821,10 @@ progress::-webkit-progress-value {
   }
   .workspace-progress strong {
     margin: 0;
-    font-size: 11px;
+    font-size: 13px;
   }
   .workspace-progress > span {
-    font-size: 11px;
+    font-size: 13px;
   }
   .workspace-progress progress {
     grid-column: 1 / -1;
@@ -2690,7 +2843,7 @@ progress::-webkit-progress-value {
     font-size: 29px;
   }
   .panel-heading p {
-    font-size: 11px;
+    font-size: 13px;
   }
   .form-grid {
     grid-template-columns: 1fr;
@@ -2706,27 +2859,27 @@ progress::-webkit-progress-value {
     font-size: 16px;
   }
   .field {
-    font-size: 12px;
+    font-size: 14px;
   }
   .field-help {
-    font-size: 11px;
+    font-size: 13px;
   }
   .entry-card {
     padding: 16px;
   }
   .entry-card summary strong {
-    font-size: 11px;
+    font-size: 13px;
   }
   .entry-card summary small {
-    font-size: 11px;
+    font-size: 13px;
   }
   .entry-number {
     width: 31px;
     height: 31px;
-    font-size: 11px;
+    font-size: 13px;
   }
   .rubric-list p {
-    font-size: 11px;
+    font-size: 13px;
   }
   .rubric-card > .button-primary {
     width: 100%;
@@ -2740,7 +2893,7 @@ progress::-webkit-progress-value {
     font-size: 36px;
   }
   .empty-practice > p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .empty-practice .button-row {
     flex-direction: column;
@@ -2755,13 +2908,13 @@ progress::-webkit-progress-value {
   .sandbox-label {
     order: 3;
     width: 100%;
-    font-size: 11px;
+    font-size: 13px;
   }
   .shop-header {
     padding: 20px;
   }
   .shop-header > span {
-    font-size: 11px;
+    font-size: 13px;
     max-width: 120px;
     text-align: right;
   }
@@ -2769,7 +2922,7 @@ progress::-webkit-progress-value {
     font-size: 35px;
   }
   .shipping-banner {
-    font-size: 11px;
+    font-size: 13px;
     padding: 10px 15px;
     line-height: 1.8;
   }
@@ -2811,7 +2964,7 @@ progress::-webkit-progress-value {
     align-self: flex-end;
   }
   .simulator-footnote {
-    font-size: 11px;
+    font-size: 13px;
     padding: 0 5px;
   }
   .shop-success {
@@ -2878,7 +3031,7 @@ progress::-webkit-progress-value {
   }
   .portfolio-cases summary {
     align-items: flex-start;
-    font-size: 11px;
+    font-size: 13px;
     gap: 7px;
   }
   .shared-portfolio-page {
@@ -2887,11 +3040,11 @@ progress::-webkit-progress-value {
   }
   .shared-toolbar {
     align-items: flex-start;
-    font-size: 11px;
+    font-size: 13px;
   }
   .shared-toolbar .button {
     flex-shrink: 0;
-    font-size: 11px;
+    font-size: 13px;
     padding: 8px 10px;
   }
   .shared-portfolio-page .portfolio-cover,
@@ -2904,14 +3057,14 @@ progress::-webkit-progress-value {
   .shared-portfolio-page .portfolio-document p,
   .shared-portfolio-page .portfolio-document dl,
   .shared-portfolio-page .portfolio-document summary {
-    font-size: 11px;
+    font-size: 13px;
   }
   .prose {
     padding: 24px;
     margin-top: 25px;
   }
   .prose p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .dialog-content {
     padding: 28px 24px;
@@ -2922,7 +3075,7 @@ progress::-webkit-progress-value {
     width: calc(100% - 28px);
   }
   .site-header nav a {
-    font-size: 11px;
+    font-size: 13px;
     padding: 9px;
   }
   .home-heading h1 {
@@ -2936,18 +3089,18 @@ progress::-webkit-progress-value {
   }
   .role-label {
     gap: 6px;
-    font-size: 11px;
+    font-size: 13px;
   }
   .activity-card .activity-meta {
     gap: 10px;
-    font-size: 11px;
+    font-size: 13px;
   }
   .area-card {
     padding: 13px;
     gap: 9px;
   }
   .area-card strong {
-    font-size: 11px;
+    font-size: 13px;
   }
   .area-icon {
     width: 33px;
@@ -2986,14 +3139,324 @@ progress::-webkit-progress-value {
     background: transparent;
   }
   .home-area-picker .area-card strong {
-    font-size: 11px;
+    font-size: 13px;
   }
   .home-area-picker .area-description {
     display: none;
   }
   .home-area-picker .coming-badge {
     padding: 4px 7px;
+    font-size: 13px;
+  }
+}
+/* Visual rhythm: one featured surface, quiet supporting content. */
+.site-header {
+  border-color: var(--line);
+  box-shadow: 0 6px 24px #14213d04;
+}
+.site-header nav a {
+  min-height: 44px;
+  transition:
+    background 160ms,
+    color 160ms;
+}
+.home-page {
+  padding-top: 56px;
+}
+.home-heading h1 {
+  max-width: 1000px;
+  margin: auto;
+  font-size: clamp(42px, 5.4vw, 74px);
+  line-height: 1.04;
+}
+.home-heading > p {
+  max-width: 620px;
+  margin: 20px auto 0;
+  font-size: 18px;
+  line-height: 1.65;
+}
+.home-discovery {
+  margin-top: 48px;
+  gap: 64px;
+}
+.discovery-card {
+  padding: 32px;
+  box-shadow: 0 16px 48px #14213d08;
+  border-radius: 20px;
+}
+.discovery-card h2 {
+  font-size: 36px;
+  line-height: 1.12;
+}
+.home-area-picker .area-grid {
+  gap: 0;
+}
+.home-area-picker .area-card {
+  padding: 15px 10px;
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+}
+.home-area-picker .area-card.available {
+  border: 1px solid #b4c2fb;
+  border-radius: 12px;
+  background: #f0f4ff;
+  margin-bottom: 5px;
+  padding: 16px 12px;
+}
+.home-area-picker .area-card.available:hover {
+  background: #e5edff;
+}
+.home-area-picker .area-card strong {
+  font-size: 14px;
+}
+.home-area-picker .area-card > div {
+  min-width: 0;
+}
+.home-area-picker .area-card.unavailable .area-icon {
+  background: transparent;
+}
+.home-area-picker .coming-badge {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+.area-arrow {
+  transition: transform 160ms ease-out;
+}
+.area-card.available:hover .area-arrow,
+.area-card.available:focus-visible .area-arrow {
+  transform: translateX(3px);
+}
+.steps-row {
+  border-top: 1px solid #dce0d5;
+  padding: 32px 0 0;
+  margin-top: 44px;
+}
+.step-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #edf0e6;
+  color: #344c29;
+}
+.step-item h3 {
+  font-size: 16px;
+  margin-top: 2px;
+}
+.step-item p {
+  font-size: 14px;
+}
+.step-arrow {
+  display: none;
+}
+.home-note {
+  margin-top: 32px;
+}
+.internal-page {
+  padding-top: 44px;
+}
+.page-intro {
+  max-width: 680px;
+}
+.catalog-grid {
+  grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+}
+.catalog-card {
+  border-top: 4px solid var(--blue);
+}
+.coming-card {
+  box-shadow: none;
+  background: transparent;
+  border-style: dashed;
+}
+.coming-art {
+  height: 100px;
+  background: #edf0e6;
+}
+.brief-content .surface {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  padding: 28px 0;
+}
+.brief-content .surface:first-child {
+  padding-top: 0;
+}
+.requirements-list > div {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.requirements-list p {
+  line-height: 1.8;
+}
+.sticky-card {
+  border-top: 4px solid var(--blue);
+}
+.workspace-tab {
+  min-height: 68px;
+  border-radius: 10px;
+}
+.workspace-tab.active {
+  box-shadow: inset 3px 0 var(--blue);
+}
+.editor-form {
+  border-top: 3px solid #cdd5bc;
+}
+.field {
+  gap: 9px;
+}
+.field-help {
+  line-height: 1.7;
+}
+.entry-card {
+  box-shadow: none;
+}
+.portfolio-document {
+  box-shadow: 0 14px 45px #14213d08;
+}
+.portfolio-cover {
+  border-top: 5px solid var(--blue);
+}
+.portfolio-project > p,
+.reflection-section p {
+  font-size: 15px;
+  line-height: 1.85;
+}
+.button {
+  font-size: 14px;
+}
+.button-small,
+.button-icon,
+.account-trigger {
+  min-height: 44px;
+}
+.button-icon,
+.account-trigger {
+  min-width: 44px;
+}
+.button:not(:disabled):active {
+  transform: translateY(1px);
+}
+.back-link,
+.text-link {
+  min-height: 44px;
+}
+input:not([type="checkbox"]):not([type="file"]),
+textarea,
+select {
+  font-size: 16px;
+}
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .dialog-overlay {
+    animation: intro-appear 160ms ease-out;
+  }
+  .feedback {
+    animation: intro-appear 180ms ease-out;
+  }
+}
+@keyframes intro-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (max-width: 1100px) {
+  .home-discovery {
+    gap: 28px;
+  }
+  .catalog-grid {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .home-page {
+    padding-top: 32px;
+  }
+  .home-heading h1 {
+    font-size: clamp(38px, 9vw, 56px);
+  }
+  .home-heading > p {
+    font-size: 16px;
+    max-width: 350px;
+    margin-top: 16px;
+  }
+  .home-discovery {
+    margin-top: 28px;
+    gap: 32px;
+  }
+  .discovery-card {
+    padding: 24px 18px;
+  }
+  .discovery-card h2 {
+    font-size: 31px;
+  }
+  .home-area-picker .area-card strong {
+    font-size: 13px;
+  }
+  .home-area-picker .area-icon {
+    width: 28px;
+  }
+  .home-area-picker .area-card {
+    gap: 8px;
+    padding: 15px 4px;
+  }
+  .home-area-picker .coming-badge {
     font-size: 11px;
+    padding: 4px 6px;
+  }
+  .site-header nav a {
+    padding: 9px 6px;
+    font-size: 12px;
+  }
+  .steps-row {
+    padding: 26px 0 0;
+    margin-top: 16px;
+  }
+  .catalog-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .coming-art {
+    height: 80px;
+  }
+  .workspace-tab {
+    padding: 12px 9px;
+  }
+  .workspace-tab strong {
+    font-size: 13px;
+  }
+  .workspace-tab small {
+    font-size: 12px;
+  }
+  .page-intro,
+  .brief-content .surface > p,
+  .prose p {
+    font-size: 15px;
+  }
+  .portfolio-document dl,
+  .portfolio-document summary {
+    font-size: 14px;
+  }
+}
+@media (min-width: 761px) and (max-width: 900px) {
+  .home-discovery {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 640px;
+    margin-inline: auto;
+  }
+  .home-discovery > .discovery-card {
+    grid-column: 1;
+    grid-row: auto;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -3010,7 +3473,7 @@ progress::-webkit-progress-value {
 @media print {
   body {
     background: white;
-    font-size: 11px;
+    font-size: 13px;
   }
   .site-header,
   .site-footer,
